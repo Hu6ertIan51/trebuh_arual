@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExpelledUsersTable extends Migration
+class CreateWorkerRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateExpelledUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('expelled_users', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('worker_requests', function (Blueprint $table) {
+            $table->increments('ReqID');
+            $table->unsignedInteger('EmployerID'); // fk for the employer wanting cleaning services
         });
     }
 
@@ -26,6 +26,6 @@ class CreateExpelledUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('expelled_users');
+        Schema::dropIfExists('_worker_requests');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHouseTable extends Migration
+class CreateExpelledWorkerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateHouseTable extends Migration
      */
     public function up()
     {
-        Schema::create('house', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('expelled_worker', function (Blueprint $table) {
+            $table->increments('EW_ID');
+            $table->unsignedInteger('Worker_ID');
+            $table->string('Reason');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateHouseTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('house');
+        Schema::dropIfExists('_expelled_worker');
     }
 }

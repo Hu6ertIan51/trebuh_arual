@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmployerTable extends Migration
+class CreateWorkerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,25 @@ class CreateEmployerTable extends Migration
      */
     public function up()
     {
-        Schema::create('employer', function (Blueprint $table) {
-            $table->increments('Employer_ID');
+        Schema::create('worker', function (Blueprint $table) {
+            $table->increments('Worker_ID');
             $table->string('Name', 100);
             $table->string('EmailAddress', 100);
             $table->string('County',100);
             $table->string('Town',100);
-            $table->string('HouseType',100);
-            $table->string('NoOfBathrooms',100);
-            $table->string('NoOfBedrooms',100);
+            $table->string('Address',100);
             $table->unsignedInteger('Age');
             $table->date('DoB');
-            $table->string('Address',100);
             $table->unsignedInteger('IDNumber');
+            $table->unsignedInteger('YearsExperienced');
+            $table->string('WorkType',100);
+            $table->unsignedInteger('WorkingHours');
+            $table->unsignedInteger('Expectedsalary');
+            $table->boolean('EmploymentStatus');
             $table->unsignedInteger('RatingID');
             $table->unsignedInteger('HouseID');
-            $table->unsignedInteger('TownID');
+            $table->unsignedInteger('TownId');
         });
-            
     }
 
     /**
@@ -40,6 +41,6 @@ class CreateEmployerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employer');
+        Schema::dropIfExists('worker');
     }
 }

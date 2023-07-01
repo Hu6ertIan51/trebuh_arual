@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReportedUsersTable extends Migration
+class CreateTownTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateReportedUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('reported_users', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('town', function (Blueprint $table) {
+            $table->increments('TownID');
+            $table->string('Name', 200);
+            $table->unsignedInteger('SubID');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateReportedUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reported_users');
+        Schema::dropIfExists('town');
     }
 }
