@@ -14,11 +14,9 @@ class CreateEmployerTable extends Migration
     public function up()
     {
         Schema::create('employer', function (Blueprint $table) {
-            $table->increments('employer_ID');
+            
            
-            $table->foreignId('rating_ID')->constrained('ratings');
-            $table->foreignId('location_ID')->constrained('location');
-            $table->foreignId('house_ID')->constrained('house');
+            
 
 
         });
