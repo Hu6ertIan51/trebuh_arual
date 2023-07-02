@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmployerRequestsTable extends Migration
+class CreateSubcountyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateEmployerRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('employer_requests', function (Blueprint $table) {
-            $table->increments('ReqID');
-            $table->unsignedInteger('WorkerID'); // foreign key of the worker making the request
+        Schema::create('subcounty', function (Blueprint $table) {
+          $table->increments('SubId');
+          $table->string('Name',100);
+          $table->unsignedInteger('CountyId');
+
+          $table->foreign('CountyId')->references('CountyID')->on('county');
         });
     }
 
@@ -26,6 +29,6 @@ class CreateEmployerRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_employer_requests');
+        Schema::dropIfExists('subcounty');
     }
 }

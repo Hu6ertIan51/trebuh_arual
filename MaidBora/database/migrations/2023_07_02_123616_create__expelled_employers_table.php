@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExpelledEmployerTable extends Migration
+class CreateExpelledEmployersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateExpelledEmployerTable extends Migration
      */
     public function up()
     {
-        Schema::create('expelled_employer', function (Blueprint $table) {
+        Schema::create('expelled_employers', function (Blueprint $table) {
             $table->increments('EP_ID');
             $table->unsignedInteger('Employer_ID');
             $table->string('Reason');
+            $table->timestamp('Deleted_at');
+
+            $table->foreign('Employer_ID')->references('Employer_ID')->on('employer');
         });
     }
 
@@ -27,6 +30,6 @@ class CreateExpelledEmployerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_expelled_employer');
+        Schema::dropIfExists('_expelled_employers');
     }
 }
