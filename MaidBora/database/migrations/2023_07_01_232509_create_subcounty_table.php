@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRatingsTable extends Migration
+class CreateSubcountyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateRatingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ratings', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('subcounty', function (Blueprint $table) {
+          $table->increments('SubId');
+          $table->string('Name',100);
+          $table->unsignedInteger('CountyId');
+
+          $table->foreign('CountyId')->references('CountyID')->on('county');
         });
     }
 
@@ -26,6 +29,6 @@ class CreateRatingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ratings');
+        Schema::dropIfExists('subcounty');
     }
 }
