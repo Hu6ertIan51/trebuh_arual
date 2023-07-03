@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class worker_ratings extends Model
 {
     use HasFactory;
+
+    protected $table = 'ratings';
+    protected $primaryKey = 'id';
+    protected $fillable = ['rating'];
+   
+
+    // many to one worker
+    public function worker()
+    {
+        return $this->belongsTo(Worker::class);
+    }
 }
