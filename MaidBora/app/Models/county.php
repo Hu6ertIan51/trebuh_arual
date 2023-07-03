@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class county extends Model
 {
     use HasFactory;
+    protected $table = "county";
+    protected $primaryKey = "CountyId";
+    protected $fillable = [ 'Name'];
+
+    public function subcounty(){
+      return $this->hasMany(subcounty::class);
+    }
+
+    public function town(){
+        return $this->hasMany(town::class);
+    }
 }

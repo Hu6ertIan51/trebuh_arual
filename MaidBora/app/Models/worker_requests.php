@@ -10,7 +10,7 @@ class worker_requests extends Model
     use HasFactory;
 
     protected $table = 'worker_requests';
-    protected $primaryKey = 'ReqID';
+    protected $primaryKey = ['ReqID'];
 
     // 1 request to 1 worker
     public function worker()

@@ -11,13 +11,13 @@ class expelled_employers extends Model
 
     protected $table = 'expelled_employers';
     protected $primaryKey = 'EP_ID';
-    protected $fillable = ['reason'];
+    protected $fillable = ['Reason'];
     
 
     // 1 Expelled Employer belongs to one employer
     public function employer()
     {
-        return $this->belongsTo(Employer::class, 'employer_id');
+        return $this->belongsTo(Employer::class, 'Employer_ID');
     }
     
 }
