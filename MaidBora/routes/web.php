@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\worker;
+use App\Http\Controllers\WorkerController;
+//everytime we include a model in our code, specify that we're using it in the namespace
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//get or post symbolize the method that the route will use
 Route::get('/', function () {
-    return view('login');
+    return view('template');
 });
+
+
+//roleController->all()
+
+//defining a route 
+//route::method('routeName/functionName',[nameController::class,'method']);
+Route::get('worker/profile',[WorkerController::class,'profile']);
+Route::get('worker/all',[WorkerController::class,'all']); 
+Route::get('worker/add',[WorkerController::class,'add']);
+
