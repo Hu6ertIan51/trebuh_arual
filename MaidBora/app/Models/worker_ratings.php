@@ -11,7 +11,7 @@ class worker_ratings extends Model
 
     protected $table = 'ratings';
     protected $primaryKey = 'id';
-    protected $fillable = ['rating','raterID','worker_ID','created_at'];
+    protected $fillable = ['rating','raterID','worker_ID','created_at','id'];
    
 
     // many to one worker

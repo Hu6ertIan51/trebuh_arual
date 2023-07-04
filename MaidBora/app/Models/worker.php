@@ -11,7 +11,7 @@ class worker extends Model
 
     protected $table = "worker";
     protected $primaryKey = "worker_ID";
-    protected $fillable = ['name','emailAddress','County','Town','Address','Age','DoB','IDNumber','YearsExperienced','WorkType','WorkingHours','ExpectedSalary','Password'];
+    protected $fillable = ['worker_ID','name','emailAddress','County','Town','Address','Age','DoB','IDNumber','YearsExperienced','WorkType','WorkingHours','ExpectedSalary','Password'];
 
     //belongs to (one to one relationship)
     public function employer(){

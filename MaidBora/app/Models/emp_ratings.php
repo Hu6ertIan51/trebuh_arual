@@ -11,7 +11,7 @@ class emp_ratings extends Model
 
     protected $table = 'emp_ratings';
     protected $primaryKey = 'id';
-    protected $fillable = ['rating','rated_at','Emp_ID','raterID'];
+    protected $fillable = ['rating','rated_at','Emp_ID','raterID','id'];
     
 
     // many ratings belongs to one employer
