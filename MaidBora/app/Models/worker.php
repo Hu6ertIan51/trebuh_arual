@@ -10,8 +10,8 @@ class worker extends Model
     use HasFactory;
 
     protected $table = "worker";
-    protected $primaryKey = "worker_ID";
-    protected $fillable = ['worker_ID','name','emailAddress','County','Town','Address','Age','DoB','IDNumber','YearsExperienced','WorkType','WorkingHours','ExpectedSalary','Password'];
+    protected $primaryKey = "Worker_ID";
+    protected $fillable = ['Worker_ID','name','emailAddress','County','Town','Address','Age','DoB','IDNumber','YearsExperienced','WorkType','WorkingHours','ExpectedSalary','Password'];
 
     //belongs to (one to one relationship)
     public function employer(){
