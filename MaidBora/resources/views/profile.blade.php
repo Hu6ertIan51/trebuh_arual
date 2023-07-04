@@ -270,40 +270,8 @@
               <img src="{{URL::to('img_2/bruce-mars.jpg" alt="profile_image')}}" class="w-100 border-radius-lg shadow-sm">
             </div>
           </div>
-          <div class="col-auto my-auto">
-            <div class="h-100">
-              <h5 class="mb-1">
-                Richard Davis
-              </h5>
-              <p class="mb-0 font-weight-normal text-sm">
-                CEO / Co-Founder
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-            <div class="nav-wrapper position-relative end-0">
-              <ul class="nav nav-pills nav-fill p-1" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
-                    <i class="material-icons text-lg position-relative">home</i>
-                    <span class="ms-1">App</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
-                    <i class="material-icons text-lg position-relative">email</i>
-                    <span class="ms-1">Messages</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
-                    <i class="material-icons text-lg position-relative">settings</i>
-                    <span class="ms-1">Settings</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          
+          
         </div>
         <div class="row">
           <div class="row">
@@ -312,14 +280,7 @@
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Platform Settings</h6>
                 </div>
-                <div class="card-body p-3">
-                  <h6 class="text-uppercase text-body text-xs font-weight-bolder">Account</h6>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0 px-0">
-                      <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
-                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Email me when someone follows me</label>
-                      </div>
+                
                     </li>
                     <li class="list-group-item border-0 px-0">
                       <div class="form-check form-switch ps-0">
