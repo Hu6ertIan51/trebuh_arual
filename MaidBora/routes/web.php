@@ -14,8 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Employer');
+    return view('login');
 });
-
-//Employer Sign In
-Route::get('user/login', [UserController::class, 'login']);
