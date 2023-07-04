@@ -11,7 +11,7 @@ class expelled_employers extends Model
 
     protected $table = 'expelled_employers';
     protected $primaryKey = 'EP_ID';
-    protected $fillable = ['Reason'];
+    protected $fillable = ['Reason','Deleted_at','EP_ID'];
     
 
     // 1 Expelled Employer belongs to one employer
