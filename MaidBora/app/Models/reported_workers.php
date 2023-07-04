@@ -10,7 +10,7 @@ class reported_workers extends Model
     use HasFactory;
     protected $table = 'reported_workers';
     protected $primaryKey = 'RW_ID';
-    protected $fillable = ['reason'];
+    protected $fillable = ['reason','RW_ID','ReporterId','ReporteeId','warning','comment','Reported_at'];
     
 
     // 1 Reported Worker belongs to one worker

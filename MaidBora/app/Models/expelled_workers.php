@@ -10,7 +10,7 @@ class expelled_workers extends Model
     use HasFactory;
     protected $table = 'expelled_workers';
     protected $primaryKey = 'EW_ID';
-    protected $fillable = ['reason'];
+    protected $fillable = ['reason','Worker_ID','Deleted_at'];
     
 
     // 1 Expelled Worker belongs to one worker
