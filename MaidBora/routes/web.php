@@ -5,6 +5,9 @@ use App\Models\worker;
 use App\Http\Controllers\WorkerController;
 //everytime we include a model in our code, specify that we're using it in the namespace
 
+use App\Models;
+use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +21,7 @@ use App\Http\Controllers\WorkerController;
 
 //get or post symbolize the method that the route will use
 Route::get('/', function () {
-    return view('template');
+    return view('signin');
 });
 
 
@@ -26,7 +29,16 @@ Route::get('/', function () {
 
 //defining a route 
 //route::method('routeName/functionName',[nameController::class,'method']);
-Route::get('worker/profile',[WorkerController::class,'profile']);
-Route::get('worker/all',[WorkerController::class,'all']); 
-Route::get('worker/add',[WorkerController::class,'add']);
+Route::get('Worker/profile',[WorkerController::class,'profile']);
+Route::get('Worker/all',[WorkerController::class,'all']); 
+Route::get('Worker/add',[WorkerController::class,'add']);
+Route::get('Worker/dashboard',[WorkerController::class,'dashboard']);
 
+
+//EmployerControllerRoutes
+Route::get('Employer/login',[EmployerController::class, 'login']);
+Route::get('Employer/dashboard', [EmployerController::class, 'Dashboard']);
+
+//AdminControllers
+Route::get('Admin/dashboard', [AdminController::class, 'AdminDasboard']);
+Route::get('Admin/login',[AdminController::class, 'Login']);
