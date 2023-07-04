@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models;
+use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('signin');
 });
+
+//EmployerControllerRoutes
+Route::get('Employer/login',[EmployerController::class, 'login']);
+Route::get('Employer/dashboard', [EmployerController::class, 'Dashboard']);
+
+//AdminControllers
+Route::get('Admin/dashboard', [AdminController::class, 'AdminDasboard']);
+Route::get('Admin/login',[AdminController::class, 'Login']);
