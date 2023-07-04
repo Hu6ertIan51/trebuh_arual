@@ -8,42 +8,24 @@ use App\Models\worker;
 
 class WorkerController extends Controller
 {
-    //show all workers
-    public function all(){
-        //call the worker model
-        //$allWorkers = worker::all();
-        //dd($allWorkers); - to show the output of workers  'dump and die'
-        //echo "<h1>WITHIN THE ALL METHOD BABY!</h1>";
-
-        //pass this data to the view file
+    public function AuthRegister(){
+        // we need design a page for sign_up
+    }
     
+    public function login(){
+        return view ('signin');
+    }
+    
+    public function dashboard(){ //1st page
+        return view ('template');
     }
 
-    //show one worker
-    public function one(){}
-
-    //add a worker
-    public function add(){
-        echo "within the add method";
+    public function profile(){ //shows worker profile
+        return view ('worker.profile');
     }
 
-    //save 
-    public function save(){}
-
-    //edit 
-    public function edit(){}
-
-    //save edits
-    public function saveChanges(){}
-
-    //delete
-    public function delete(){}
-
-    public function profile(){
-        return view ('profile');
-    }
-    public function dashboard(){
-        return view ('dashboard');
+    public function settings(){
+        return view ('worker.Settings');
     }
 
 }

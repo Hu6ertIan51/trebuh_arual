@@ -21,7 +21,7 @@ use App\Http\Controllers\AdminController;
 
 //get or post symbolize the method that the route will use
 Route::get('/', function () {
-    return view('Worker.Profile');
+    return view('signin');
 });
 
 
@@ -30,9 +30,10 @@ Route::get('/', function () {
 //defining a route 
 //route::method('routeName/functionName',[nameController::class,'method']);
 Route::get('Worker/profile',[WorkerController::class,'profile']);
-Route::get('Worker/all',[WorkerController::class,'all']); 
-Route::get('Worker/add',[WorkerController::class,'add']);
+Route::get('Worker/login',[WorkerController::class,'login']); 
 Route::get('Worker/dashboard',[WorkerController::class,'dashboard']);
+Route::get('Worker/profile',[WorkerController::class,'profile']);
+Route::get('Worker/settings',[WorkerController::class,'settings']);
 
 
 //EmployerControllerRoutes
