@@ -17,15 +17,19 @@ class WorkerController extends Controller
     }
     
     public function dashboard(){ //1st page
-        return view ('template');
+        return view ('Worker.WorkerDashboard');
     }
 
     public function profile(){ //shows worker profile
-        return view ('worker.profile');
+        return view ('Worker.Profile');
     }
 
     public function settings(){
-        return view ('worker.Settings');
+        return view ('Worker.Settings');
+    }
+
+    public function NextPage(){
+        return view ('Worker.NextPage');
     }
 
 }

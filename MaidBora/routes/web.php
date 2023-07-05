@@ -30,12 +30,14 @@ Route::get('/', function () {
 
 //defining a route 
 //route::method('routeName/functionName',[nameController::class,'method']);
+//WorkerController routes
 Route::get('Worker/profile',[WorkerController::class,'profile']);
 Route::get('Worker/login',[WorkerController::class,'login']); 
 Route::get('Worker/dashboard',[WorkerController::class,'dashboard']);
-Route::get('Worker/profile',[WorkerController::class,'profile']);
+
 Route::get('Worker/settings',[WorkerController::class,'settings']);
 Route::get('Worker/SignUp',[WorkerController::class,'AuthRegister']);
+Route::get('Worker/NextPage',[WorkerController::class,'NextPage']);
 
 
 //EmployerControllerRoutes

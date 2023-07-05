@@ -44,22 +44,31 @@
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
                 <h4 class="font-weight-bolder">Worker Sign Up</h4>
-                <p class="mb-0">Enter your email and password to sign up</p>
+                <p class="mb-0">Type your details</p>
               </div>
               <div class="card-body">
-                <form role="form">
+                <form action = "{{URL('Worker/NextPage')}}" role="form">
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                    <input type="email" class="form-control form-control-lg" placeholder="Full Name" aria-label="Email" aria-describedby="email-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Password" aria-describedby="password-addon">
                   </div>
                   <div class="mb-3">
                     <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                   </div>
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="County" aria-label="Password" aria-describedby="password-addon">
                   </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="Town" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="DoB" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  
                   <div class="text-center">
-                    <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign up</button>
+                    <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"  >Next</button>
                   </div>
                 </form>
               </div>
@@ -77,8 +86,8 @@
               <div class="position-relative">
                 <img class="max-width-500 w-100 position-relative z-index-2" src="{{URL::to('img/logo.png')}}">
               </div>
-              <h4 class="mt-5 text-white font-weight-bolder">Need a cleaner to clean your house</h4>
-              <p class="text-white">We'll find the right cleaner for your house.</p>
+              <h4 class="mt-5 text-white font-weight-bolder">Need a cleaner to clean your house? </h4>
+              <p class="text-white">We'll find the right cleaner for you! </p>
             </div>
           </div>
         </div>
