@@ -66,7 +66,7 @@
               <div class="card-footer text-center pt-0 px-lg-2 px-1">
                 <p class="mb-4 text-sm mx-auto">
                   Don't have an account?
-                  <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                  <a href="{{URL::to('Worker/SignUp')}}" class="text-primary text-gradient font-weight-bold">Sign up</a>
                 </p>
               </div>
             </div>
@@ -77,7 +77,7 @@
               <div class="position-relative">
                 <img class="max-width-500 w-100 position-relative z-index-2" src="{{URL::to('img/logo.png')}}">
               </div>
-              <h4 class="mt-5 text-white font-weight-bolder">Need a cleaner to clean your 💩</h4>
+              <h4 class="mt-5 text-white font-weight-bolder">Need a cleaner to clean your house</h4>
               <p class="text-white">We'll find the right cleaner for your house.</p>
             </div>
           </div>

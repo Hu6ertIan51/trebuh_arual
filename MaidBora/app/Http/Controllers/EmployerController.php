@@ -14,4 +14,8 @@ class EmployerController extends Controller
     public function Dashboard(){
         return view ('Employer.Employer');
     }
+    
+    public function SignUp(){
+        return view ('Employer.SignUp');
+    }
 }

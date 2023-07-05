@@ -9,7 +9,7 @@ use App\Models\worker;
 class WorkerController extends Controller
 {
     public function AuthRegister(){
-        // we need design a page for sign_up
+        return view ('Worker.SignUp');// we need design a page for sign_up
     }
     
     public function login(){

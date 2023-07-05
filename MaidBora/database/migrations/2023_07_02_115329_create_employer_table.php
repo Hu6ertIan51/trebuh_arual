@@ -27,7 +27,7 @@ class CreateEmployerTable extends Migration
             $table->string('Address',100);
             $table->unsignedInteger('IDNumber');
             $table->string('Password');
-            $table->unsignedInteger('TownID'); 
+            $table->unsignedInteger('TownID');
 
             $table->foreign('TownId')->references('TownId')->on('town');
         });
@@ -40,6 +40,6 @@ class CreateEmployerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employer');
+        Schema::dropIfExists('employer', 255);
     }
 }

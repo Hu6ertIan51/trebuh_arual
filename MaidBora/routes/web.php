@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models;
 use App\Models\worker;
 use App\Http\Controllers\WorkerController;
-//everytime we include a model in our code, specify that we're using it in the namespace
-
-use App\Models;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\AdminController;
+//everytime we include a model in our code, specify that we're using it in the namespace
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,11 +35,13 @@ Route::get('Worker/login',[WorkerController::class,'login']);
 Route::get('Worker/dashboard',[WorkerController::class,'dashboard']);
 Route::get('Worker/profile',[WorkerController::class,'profile']);
 Route::get('Worker/settings',[WorkerController::class,'settings']);
+Route::get('Worker/SignUp',[WorkerController::class,'AuthRegister']);
 
 
 //EmployerControllerRoutes
 Route::get('Employer/login',[EmployerController::class, 'login']);
 Route::get('Employer/dashboard', [EmployerController::class, 'Dashboard']);
+Route::get('Employer/SignUp',[EmployerController::class,'SignUp']);
 
 //AdminControllers
 Route::get('Admin/dashboard', [AdminController::class, 'AdminDasboard']);
