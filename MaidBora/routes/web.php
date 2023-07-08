@@ -6,6 +6,7 @@ use App\Models\worker;
 use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserSignUp;
 //everytime we include a model in our code, specify that we're using it in the namespace
 
 
@@ -34,7 +35,6 @@ Route::get('/', function () {
 Route::get('Worker/profile',[WorkerController::class,'profile']);
 Route::get('Worker/login',[WorkerController::class,'login']); 
 Route::get('Worker/dashboard',[WorkerController::class,'dashboard']);
-
 Route::get('Worker/settings',[WorkerController::class,'settings']);
 Route::get('Worker/SignUp',[WorkerController::class,'AuthRegister']);
 Route::get('Worker/NextPage',[WorkerController::class,'NextPage']);
@@ -48,3 +48,6 @@ Route::get('Employer/SignUp',[EmployerController::class,'SignUp']);
 //AdminControllers
 Route::get('Admin/dashboard', [AdminController::class, 'AdminDasboard']);
 Route::get('Admin/login',[AdminController::class, 'Login']);
+
+//UserSignUp
+Route::get('User/SignUp', [UserSignUp::class, 'AuthRegister']);

@@ -33,7 +33,16 @@
   <link id="pagestyle" href="{{URL::to('css_1/soft-design-system.css?v=1.0.9')}}" rel="stylesheet" />
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <script>
+  function redirectToPage() {
+    var role = document.getElementById("role").value;
+    if (role === "employer") {
+      window.location.href = "https://www.youtube.com/shorts/E0rYbgDkvco"; // Replace with the URL for employer page
+    } else if (role === "worker") {
+      window.location.href = "worker-page.html"; // Replace with the URL for worker page
+    }
+  }
+  </script>
 </head>
 <body class="sign-in-illustration">
   <!-- Navbar -->
@@ -44,22 +53,55 @@
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
                 <h4 class="font-weight-bolder">Sign Up</h4>
-                <p class="mb-0">Enter your email and password to sign up</p>
+                <p class="mb-0">Enter your details to sign up</p>
               </div>
               <div class="card-body">
                 <form role="form">
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                    <input type="email" class="form-control form-control-lg" placeholder="First Name" aria-label="Email" aria-describedby="email-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="Last Name" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="UserName" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="Gender" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="Phone number" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="Email-address" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="IDNumber" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="County" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="SubCounty" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="Town" aria-label="Password" aria-describedby="password-addon">
                   </div>
                   <div class="mb-3">
                     <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                   </div>
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg" placeholder="Confirm Password" aria-label="Password" aria-describedby="password-addon">
+                  </div>
+                  <div class="mb-3">
+                  <label for="role">Select Role:</label>
+                    <select id="role" name="role">
+                      <option value="employer">Employer</option>
+                      <option value="worker">Worker</option>
+                    </select>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                    <button type="submit" id ="redirect-button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" onclick="redirectToPage()">Next</button>
                   </div>
                 </form>
               </div>
