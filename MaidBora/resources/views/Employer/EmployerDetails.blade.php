@@ -43,30 +43,29 @@
           <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
-                <h4 class="font-weight-bolder">Sign In</h4>
-                <p class="mb-0">Enter your email and password to sign in</p>
+                <h4 class="font-weight-bolder">Employer details</h4>
+                <p class="mb-0">Fill in your details to finish</p>
               </div>
               <div class="card-body">
                 <form role="form">
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                    <input type="text" class="form-control form-control-lg" placeholder="HouseType" aria-label="House-Type" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                    <input type="text" class="form-control form-control-lg" placeholder="No. of Bathrooms" aria-label="No.of bathrooms">
                   </div>
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                  <div class="mb-3">
+                    <input type="text" class="form-control form-control-lg" placeholder="No. of bedrooms" aria-label="No.of bedrooms" >
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                    <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">FINISH</button>
                   </div>
                 </form>
               </div>
               <div class="card-footer text-center pt-0 px-lg-2 px-1">
                 <p class="mb-4 text-sm mx-auto">
-                  Don't have an account?
-                  <a href="{{URL::to('User/SignUp')}}" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                  Have an account?
+                  <a href="{{URL::to('User/SignIn')}}" class="text-primary text-gradient font-weight-bold">Sign in</a>
                 </p>
               </div>
             </div>

@@ -10,7 +10,12 @@ class AdminController extends Controller
         return view ('admin');
     }
 
-    public function Login(){
-        return view ('signin');
+    public function addAdmin(){
+        
     }
+
+    public function removeUser(){
+
+    }
+    
 }

@@ -7,15 +7,15 @@ use App\Models\employer;
 class EmployerController extends Controller
 {
     //Returns teh view for login for employer
+    public function SignUp(){
+        return view ('Employer.EmployerDetails');
+    }
+    
     public function Login(){
         return view ('signin');
     }
 
     public function Dashboard(){
         return view ('Employer.Employer');
-    }
-    
-    public function SignUp(){
-        return view ('Employer.SignUp');
     }
 }

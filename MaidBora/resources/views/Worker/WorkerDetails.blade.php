@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    MaidBora - Worker Sign Up page
+    MaidBora - Login page
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -43,39 +43,32 @@
           <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
-                <h4 class="font-weight-bolder">Worker Sign Up</h4>
-                <p class="mb-0">Type your details</p>
+                <h4 class="font-weight-bolder">Worker Details</h4>
+                <p class="mb-0">Fill in your details to finish</p>
               </div>
               <div class="card-body">
-                <form action = "{{URL('Worker/NextPage')}}" role="form">
+                <form role="form">
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Full Name" aria-label="Email" aria-describedby="email-addon">
+                    <input type="text" class="form-control form-control-lg" placeholder="Years of experience" aria-label="ID" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Password" aria-describedby="password-addon">
+                    <input type="email" class="form-control form-control-lg" placeholder="Work Type" aria-label="Work Type" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                    <input type="email" class="form-control form-control-lg" placeholder="Work Hours" aria-label="Work Hours" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="County" aria-label="Password" aria-describedby="password-addon">
+                    <input type="email" class="form-control form-control-lg" placeholder="Expected_salary" aria-label="Expected salary" >
                   </div>
-                  <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Town" aria-label="Password" aria-describedby="password-addon">
-                  </div>
-                  <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="DoB" aria-label="Password" aria-describedby="password-addon">
-                  </div>
-                  
                   <div class="text-center">
-                    <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"  >Next</button>
+                    <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
                   </div>
                 </form>
               </div>
               <div class="card-footer text-center pt-0 px-lg-2 px-1">
                 <p class="mb-4 text-sm mx-auto">
                   Have an account?
-                  <a href="{{URL::to('Worker/login')}}" class="text-primary text-gradient font-weight-bold">Sign in</a>
+                  <a href="{{URL::to('User/SignIn')}}" class="text-primary text-gradient font-weight-bold">Sign in</a>
                 </p>
               </div>
             </div>
@@ -86,8 +79,8 @@
               <div class="position-relative">
                 <img class="max-width-500 w-100 position-relative z-index-2" src="{{URL::to('img/logo.png')}}">
               </div>
-              <h4 class="mt-5 text-white font-weight-bolder">Need a cleaner to clean your house? </h4>
-              <p class="text-white">We'll find the right cleaner for you! </p>
+              <h4 class="mt-5 text-white font-weight-bolder">Need a cleaner to clean your house</h4>
+              <p class="text-white">We'll find the right cleaner for your house.</p>
             </div>
           </div>
         </div>

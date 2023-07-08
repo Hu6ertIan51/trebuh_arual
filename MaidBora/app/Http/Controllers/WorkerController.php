@@ -8,9 +8,6 @@ use App\Models\worker;
 
 class WorkerController extends Controller
 {
-    public function AuthRegister(){
-        return view ('Worker.SignUp');// we need design a page for sign_up
-    }
     
     public function login(){
         return view ('signin');
@@ -20,16 +17,7 @@ class WorkerController extends Controller
         return view ('Worker.WorkerDashboard');
     }
 
-    public function profile(){ //shows worker profile
-        return view ('Worker.Profile');
+    public function SignUp(){
+        return view('Worker.WorkerDetails');
     }
-
-    public function settings(){
-        return view ('Worker.Settings');
-    }
-
-    public function NextPage(){
-        return view ('Worker.NextPage');
-    }
-
 }
