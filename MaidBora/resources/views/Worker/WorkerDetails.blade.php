@@ -47,21 +47,22 @@
                 <p class="mb-0">Fill in your details to finish</p>
               </div>
               <div class="card-body">
-                <form role="form">
+                <form role="form" action = "{{route('WorkDetails')}}" method = "POST">
+                  @csrf
                   <div class="mb-3">
-                    <input type="text" class="form-control form-control-lg" placeholder="Years of experience" aria-label="ID" >
+                    <input type="text" required name = "YearsExperienced" class="form-control form-control-lg" placeholder="Years of experience" aria-label="ID" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Work Type" aria-label="Work Type" >
+                    <input type="text" required name= "WorkType" class="form-control form-control-lg" placeholder="Work Type" aria-label="Work Type" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Work Hours" aria-label="Work Hours" >
+                    <input type="text" required name = "WorkingHours" class="form-control form-control-lg" placeholder="Work Hours" aria-label="Work Hours" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Expected_salary" aria-label="Expected salary" >
+                    <input type="text" required name = "Expectedsalary" class="form-control form-control-lg" placeholder="Expected_salary" aria-label="Expected salary" >
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                    <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">NEXT</button>
                   </div>
                 </form>
               </div>

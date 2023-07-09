@@ -10,6 +10,23 @@ class EmployerController extends Controller
     public function SignUp(){
         return view ('Employer.EmployerDetails');
     }
+
+    public function EmpDetails(Request $request){
+        $request->validate([
+            'housetype' => 'required',
+            'bathroomNo' => 'required',
+            'bedroomNo' => 'required',
+        ]);
+        $details = new employer();
+        $details -> housetype = $request->housetype;
+        $details -> bathroomNo = $request->bathroomNo;
+        $details -> bedroomNo = $request->bedroomNo;
+
+        $details->save();
+
+        //return response()->json(['message' => 'Data saved successfully']);
+        return redirect()->route('Finish');
+    }
     
     public function Login(){
         return view ('signin');

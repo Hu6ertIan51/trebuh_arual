@@ -15,23 +15,23 @@ class CreateUsersTable extends Migration
     {
         Schema::create('Users', function (Blueprint $table) {
             $table->increments('UserId');
-            $table->string('First name');
-            $table->string('Last name');
-            $table->string('Username');
-            $table->string('Gender');
-            $table->string('Phone', 20);
-            $table->text('Email', 200);
-            $table->text('IDNumber');
-            $table->text('County');
-            $table->text('Subcounty');
-            $table->text('Town');
-            $table->text('Password');
-            $table->unsignedInteger('TownID');
-            $table->unsignedInteger('RoleID');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('username');
+            $table->string('gender');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('IDNumber');
+            $table->string('county');
+            $table->string('subcounty');
+            $table->string('town');
+            $table->string('password');
+            $table->string('confpassword');
             $table->timestamps();
+            $table->unsignedInteger('RoleID')->default(1);
+            
             //fk
-            $table->foreign('TownID')->references('TownID')->on('town');
-            $table->foreign('RoleID')->references('RoleID')->on('roles');
+            $table->foreign('RoleID')->references('RoleID')->on('roles');     
     });
 }
 
@@ -46,3 +46,20 @@ class CreateUsersTable extends Migration
     }
 }
 
+/*
+$table->string('gender');
+            $table->string('phone', 20);
+            $table->string('email', 200);
+            $table->string('IDNumber');
+            $table->string('county');
+            $table->string('subcounty');
+            $table->string('town');
+            $table->string('password');
+            $table->string('confpassword');
+            $table->unsignedInteger('TownID');
+            $table->unsignedInteger('RoleID');
+            $table->timestamps();
+            //fk
+            $table->foreign('TownID')->references('TownID')->on('town');
+            $table->foreign('RoleID')->references('RoleID')->on('roles');
+*/

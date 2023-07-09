@@ -33,16 +33,7 @@
   <link id="pagestyle" href="{{URL::to('css_1/soft-design-system.css?v=1.0.9')}}" rel="stylesheet" />
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-  <script>
-  function redirectToPage() {
-    var role = document.getElementById("role").value;
-    if (role === "employer") {
-      window.location.href = "https://www.youtube.com/shorts/E0rYbgDkvco"; // Replace with the URL for employer page
-    } else if (role === "worker") {
-      window.location.href = "worker-page.html"; // Replace with the URL for worker page
-    }
-  }
-  </script>
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 <body class="sign-in-illustration">
   <!-- Navbar -->
@@ -52,63 +43,57 @@
           <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
-                <h4 class="font-weight-bolder">Sign Up</h4>
-                <p class="mb-0">Enter your details to sign up</p>
+                <h4 class="font-weight-bolder">Finish sign up</h4>
+                <p class="mb-0">Enter your details to finish signing up</p>
               </div>
               <div class="card-body">
-                <form role="form">
+                <form id="user sign up" method = "POST" action = "{{route('RegisterUser')}}" >
+                  @csrf
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="First Name" aria-label="Email" aria-describedby="email-addon">
+                    <input type="text" required name = "firstname" class="form-control form-control-lg" placeholder="First Name" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Last Name" aria-label="Password" aria-describedby="password-addon">
+                    <input type="text" required name = "lastname"class="form-control form-control-lg" placeholder="Last Name" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="UserName" aria-label="Password" aria-describedby="password-addon">
+                    <input type="text" required name = "username" class="form-control form-control-lg" placeholder="User Name" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Gender" aria-label="Password" aria-describedby="password-addon">
+                    <input type="text" required name = "gender" class="form-control form-control-lg" placeholder="Gender" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Phone number" aria-label="Password" aria-describedby="password-addon">
+                    <input type="text" required name = "phone" class="form-control form-control-lg" placeholder="Phone Number" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Email-address" aria-label="Password" aria-describedby="password-addon">
+                    <input type="email" required name = "email" class="form-control form-control-lg" placeholder="Email Address" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="IDNumber" aria-label="Password" aria-describedby="password-addon">
+                    <input type="text" required name = "IDNumber" class="form-control form-control-lg" placeholder="ID Number" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="County" aria-label="Password" aria-describedby="password-addon">
+                    <input type="text" required name = "county" class="form-control form-control-lg" placeholder="County" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="SubCounty" aria-label="Password" aria-describedby="password-addon">
+                    <input type="text" required name = "subcounty" class="form-control form-control-lg" placeholder="Sub County" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Town" aria-label="Password" aria-describedby="password-addon">
+                    <input type="text" required name = "town" class="form-control form-control-lg" placeholder="Town" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                    <input type="text" required name = "password" class="form-control form-control-lg" placeholder="Password" >
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" placeholder="Confirm Password" aria-label="Password" aria-describedby="password-addon">
-                  </div>
-                  <div class="mb-3">
-                  <label for="role">Select Role:</label>
-                    <select id="role" name="role">
-                      <option value="employer">Employer</option>
-                      <option value="worker">Worker</option>
-                    </select>
+                    <input type="text" required name = "confpassword" class="form-control form-control-lg" placeholder="Confirm Password" >
                   </div>
                   <div class="text-center">
-                    <button type="submit" id ="redirect-button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" onclick="redirectToPage()">Next</button>
+                    <button type = "submit" class="btn btn-block btn primary bg-gradient-primary btn-lg w-100 mt-4 mb-0" >Submit</button>
                   </div>
                 </form>
               </div>
               <div class="card-footer text-center pt-0 px-lg-2 px-1">
                 <p class="mb-4 text-sm mx-auto">
-                  Don't have an account?
-                  <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                  Have an account?
+                  <a href="{{URL::to('User/SignIn')}}" class="text-primary text-gradient font-weight-bold">Sign in</a>
                 </p>
               </div>
             </div>

@@ -15,13 +15,16 @@ class CreateWorkerTable extends Migration
     {
         Schema::create('worker', function (Blueprint $table) {
             $table->increments('WorkerID');
-            $table->unsignedInteger('YearsExperienced'); //worker
+            $table->integer('YearsExperienced'); //worker
             $table->string('WorkType',100); //worker
-            $table->unsignedInteger('WorkingHours'); //worker
-            $table->unsignedInteger('Expectedsalary'); //worker
-            $table->boolean('EmploymentStatus'); //worker
+            $table->integer('WorkingHours'); //worker
+            $table->decimal('Expectedsalary', 10, 2); //worker
+            $table->boolean('EmploymentStatus')->default(1); //worker
+            $table->unsignedInteger('roleid')->nullable();
+            $table->timestamps();
 
-            $table->foreign('WorkerID')->references('UserID')->on('Users');
+            $table->foreign('roleid')->references('RoleID')->on('roles');
+ 
         });
     }
 

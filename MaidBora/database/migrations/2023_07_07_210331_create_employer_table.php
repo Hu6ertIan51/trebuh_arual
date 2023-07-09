@@ -15,11 +15,13 @@ class CreateEmployerTable extends Migration
     {
         Schema::create('employer', function (Blueprint $table) {
             $table->increments('EmployerID');
-            $table->string('HouseType',100); // employer
-            $table->string('NoOfBathrooms',100); // employer
-            $table->string('NoOfBedrooms',100); //employer
+            $table->string('housetype',100); // employer
+            $table->string('bathroomNo',100); // employer
+            $table->string('bedroomNo',100); //employer
+            $table->unsignedInteger('roleid')->nullable(); //fk
+            $table->timestamps();
 
-            $table->foreign('EmployerID')->references('UserID')->on('Users');
+            $table->foreign('roleid')->references('RoleID')->on('roles');
         });
     }
 

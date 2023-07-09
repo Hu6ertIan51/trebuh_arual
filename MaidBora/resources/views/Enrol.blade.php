@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    MaidBora - Login page
+    MaidBora - Enrollment page
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -43,23 +43,21 @@
           <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
-                <h4 class="font-weight-bolder">Employer details</h4>
-                <p class="mb-0">Fill in your details</p>
+                <h4 class="font-weight-bolder">Enrol As:</h4>
+                <p class="mb-0">Please select your role in the application</p>
               </div>
               <div class="card-body">
-                <form role="form" action = "{{route('EmpSave')}}" method = "POST" >
+                <form role="form" id = "EnrolForm" action = "{{route('SaveRole')}}" method = "POST">
                   @csrf
                   <div class="mb-3">
-                    <input type="text" required name = "housetype" class="form-control form-control-lg" placeholder="HouseType" aria-label="House-Type" >
-                  </div>
-                  <div class="mb-3">
-                    <input type="text" required name = "bathroomNo"class="form-control form-control-lg" placeholder="No. of Bathrooms" aria-label="No.of bathrooms">
-                  </div>
-                  <div class="mb-3">
-                    <input type="text" required name = "bedroomNo" class="form-control form-control-lg" placeholder="No. of bedrooms" aria-label="No.of bedrooms" >
+                    <input type="text" id = "selection" required name = "roletype" class="form-control form-control-lg" placeholder="Select role" list = "datalist"aria-label="ID" >
+                    <datalist id="datalist">
+                    <option value="Worker">
+                    <option value="Employer">
+                    </datalist>
                   </div>
                   <div class="text-center">
-                    <button type="submit"  class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">NEXT</button>
+                    <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" onclick = "handleFormSubmit()">NEXT</button>
                   </div>
                 </form>
               </div>
@@ -95,7 +93,26 @@
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="{{URL::to('js_1/soft-design-system.min.js?v=1.0.9')}}" type="text/javascript"></script>
+  <script>
+    /*
+    function handleFormSubmit() {
+        var selection = document.getElementById('selection').value;
 
+        switch(selection) {
+            case 'Employer':
+                document.getElementById('EnrolForm').action = "{{route('Employerdetails')}}";
+                break;
+            
+            case 'Worker':
+                document.getElementById('EnrolFomr').action = "{{route('WorkerDetails')}}" 
+
+                default:
+                document.getElementById('EnrolForm').action = "{{route('Error')}}";
+        }
+        document.getElementById('EnrolForm').submit();
+    }
+    */
+  </script>
 </body>
 
 </html>
