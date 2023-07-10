@@ -30,6 +30,7 @@ class UserController extends Controller
             'town' => 'required',
             'password' => 'required',
             'confpassword' => 'required',
+            'bio' => 'required',
         ]);
         $user = new users();
         $user ->firstname = $request->firstname ;
@@ -44,7 +45,7 @@ class UserController extends Controller
         $user->town = $request->town;
         $user->password = Hash::make($request->password);
         $user->confpassword = Hash::make($request->confpassword);
-
+        $user->bio = $request->bio;
         $user->save();
         //return response()->json(['message'=>'Data saved successfully']);
         return redirect()->route('SignIn');

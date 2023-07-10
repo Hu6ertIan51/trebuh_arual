@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('town');
             $table->string('password');
             $table->string('confpassword');
+            $table->string('bio');
             $table->timestamps();
             $table->unsignedInteger('RoleID')->default(1);
             

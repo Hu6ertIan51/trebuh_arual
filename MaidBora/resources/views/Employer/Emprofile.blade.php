@@ -19,9 +19,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="{{URL::to('img_4/favicon.png')}}">
   <title>
-    Argon Dashboard 2 by Creative Tim
+    Employer profile
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -43,7 +43,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html " target="_blank">
-        <span class="ms-1 font-weight-bold">Employer Dashboard</span>
+        <span class="ms-1 font-weight-bold">Employer Profile</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -243,6 +243,7 @@
         </div>
       </div>
     </div>
+    <form action="" method = "">
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-md-8">
@@ -250,7 +251,7 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0">Edit Profile</p>
-                <button class="btn btn-primary btn-sm ms-auto">Settings</button>
+                <button type = "submit" class="btn btn-primary btn-sm ms-auto">Submit changes</button>
               </div>
             </div>
             <div class="card-body">
@@ -259,25 +260,25 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Username</label>
-                    <input class="form-control" type="text" value="lucky.jesse">
+                    <input required name = "username" class="form-control" type="text" value="lucky.jesse">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Email address</label>
-                    <input class="form-control" type="email" value="jesse@example.com">
+                    <input required name = "email" class="form-control" type="email" value="jesse@example.com">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">First name</label>
-                    <input class="form-control" type="text" value="Jesse">
+                    <input required name = "firstname" class="form-control" type="text" value="Jesse">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Last name</label>
-                    <input class="form-control" type="text" value="Lucky">
+                    <input required name = "lastname" class="form-control" type="text" value="Lucky">
                   </div>
                 </div>
               </div>
@@ -286,26 +287,26 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Address</label>
-                    <input class="form-control" type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                    <label for="example-text-input" class="form-control-label">Phone number</label>
+                    <input required name = "phone" class="form-control" type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">City</label>
-                    <input class="form-control" type="text" value="New York">
+                    <label for="example-text-input" class="form-control-label">County</label>
+                    <input required name = "county" class="form-control" type="text" value="New York">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Country</label>
-                    <input class="form-control" type="text" value="United States">
+                    <label for="example-text-input" class="form-control-label">Sub County</label>
+                    <input required name = "subcounty" class="form-control" type="text" value="United States">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Postal code</label>
-                    <input class="form-control" type="text" value="437300">
+                    <label for="example-text-input" class="form-control-label">Town</label>
+                    <input required name = "town" class="form-control" type="text" value="437300">
                   </div>
                 </div>
               </div>
@@ -322,6 +323,7 @@
             </div>
           </div>
         </div>
+    </form>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="fa fa-cog py-2"> </i>
