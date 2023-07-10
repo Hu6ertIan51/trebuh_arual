@@ -33,6 +33,6 @@ class EmployerController extends Controller
     }
 
     public function Dashboard(){
-        return view ('Employer.Employer');
+        return view ('Employer.Emprofile');
     }
 }
