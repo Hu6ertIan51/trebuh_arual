@@ -10,5 +10,12 @@ class roles extends Model
     use HasFactory;
     protected $table = "roles";
     protected $primaryKey = "RoleID";
-    protected $fillable = ['role'];
+    protected $fillable = ['roleID','roleType'];
+
+    public function worker(){
+        return $this->belongsTo(worker::class);
+    }
+    public function employer(){
+        return $this->belongsTo(employer::class);
+    }
 }

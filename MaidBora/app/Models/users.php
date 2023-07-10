@@ -11,4 +11,8 @@ class users extends Model
     protected $table = "users";
     protected $primaryKey = "UserId";
     protected $fillable = [ 'firstname', 'lastname', 'username', 'gender', 'phone', 'email', 'IDNumber', 'county', 'subcounty', 'town', 'password', 'confpassword'];
+
+    public function roles(){
+        return $this->hasOne(roles::class);
+    }
 }

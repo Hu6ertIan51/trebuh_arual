@@ -9,8 +9,8 @@ class town extends Model
 {
     use HasFactory;
     protected $table = "town";
-    protected $primaryKey = "TownID";
-    protected $fillable = ['Name', 'Sub_id'];
+    protected $primaryKey = "townID";
+    protected $fillable = ['Name', 'SubId','townId'];
 
     public function subcounty(){
         return $this->belongsTo(subcounty::class, 'Sub_id');
@@ -22,5 +22,9 @@ class town extends Model
 
     public function worker(){
         return $this->hasMany(worker::class);
+    }
+    public function county()
+    {
+        return $this->belongsTo(County::class);
     }
 }

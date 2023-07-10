@@ -12,4 +12,9 @@ class worker extends Model
     protected $table = "worker";
     protected $primaryKey = "WorkerID";
     protected $fillable = ['YearsExperienced','WorkType','WorkingHours','ExpectedSalary'];
+
+
+    public function roles(){
+        return $this->belongsTo(roles::class);
+    }
 }
