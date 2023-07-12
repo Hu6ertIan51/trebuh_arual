@@ -24,7 +24,7 @@ use App\Http\Controllers\RoleController;
 
 //get or post symbolize the method that the route will use
 Route::get('/', function () {
-    return view('signin');
+    return view('Wlcome');
 });
 
 Route::get('/Enrol', function () {
