@@ -18,10 +18,10 @@ class CreateEmployerTable extends Migration
             $table->string('housetype',100); // employer
             $table->string('bathroomNo',100); // employer
             $table->string('bedroomNo',100); //employer
-            $table->unsignedInteger('roleid')->nullable(); //fk
+            $table->unsignedInteger('roleid'); //fk
+            
+            $table->foreign('roleid')->references('RoleID')->on('roles')->onDelete('cascade');
             $table->timestamps();
-
-            $table->foreign('roleid')->references('RoleID')->on('roles');
         });
     }
 

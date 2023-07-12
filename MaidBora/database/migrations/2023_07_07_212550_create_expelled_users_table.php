@@ -15,9 +15,11 @@ class CreateExpelledUsersTable extends Migration
     {
         Schema::create('expelled_users', function (Blueprint $table) {
             $table->increments('ExpelledID');
-            $table->unsignedInteger('UserID');
+            $table->unsignedInteger('UserId')->unique();
             $table->text('Reason');
             $table->timestamps();
+
+            $table->foreign('UserId')->references('UserId')->on('users')->onDelete('cascade');
         });
     }
 

@@ -85,6 +85,9 @@
                   <div class="mb-3">
                     <input type="text" required name = "confpassword" class="form-control form-control-lg" placeholder="Confirm Password" >
                   </div>
+                  <div class="mb-3">
+                    <input type="text" required name = "bio" class="form-control form-control-lg" placeholder="Write about yourself" >
+                  </div>
                   <div class="text-center">
                     <button type = "submit" class="btn btn-block btn primary bg-gradient-primary btn-lg w-100 mt-4 mb-0" >Submit</button>
                   </div>

@@ -20,10 +20,10 @@ class CreateWorkerTable extends Migration
             $table->integer('WorkingHours'); //worker
             $table->decimal('Expectedsalary', 10, 2); //worker
             $table->boolean('EmploymentStatus')->default(1); //worker
-            $table->unsignedInteger('roleid')->nullable();
+            $table->unsignedInteger('roleid');
             $table->timestamps();
 
-            $table->foreign('roleid')->references('RoleID')->on('roles');
+            $table->foreign('roleid')->references('RoleID')->on('roles')->onDelete('cascade');
  
         });
     }

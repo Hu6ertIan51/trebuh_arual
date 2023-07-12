@@ -16,14 +16,7 @@ class roles extends Model
     {
         return $this->hasOne(Worker::class);
     }
-
-    public function employer()
-    {
-        return $this->hasOne(Employer::class);
-    }
-
-    public function user()
-    {
-        return $this->hasOne(User::class);
+    public function employer(){
+        return $this->hasOne(employer::class, 'roleid', 'RoleID');
     }
 }

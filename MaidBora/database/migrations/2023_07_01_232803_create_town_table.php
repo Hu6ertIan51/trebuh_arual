@@ -14,11 +14,11 @@ class CreateTownTable extends Migration
     public function up()
     {
         Schema::create('town', function (Blueprint $table) {
-            $table->increments('TownID');
+            $table->id('TownID');
             $table->string('Name', 200);
-            $table->unsignedInteger('SubId');
+            $table->unsignedBigInteger('SubId')->unique();
 
-            $table->foreign('SubId')->references('SubId')->on('subcounty');
+            $table->foreign('SubId')->references('SubId')->on('subcounty')->onDelete('cascade');
         });
     }
 

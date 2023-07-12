@@ -21,8 +21,8 @@ class CreateUserReportTable extends Migration
             $table->text('Description',200);
             $table->timestamps();
 
-            $table->foreign('UserID')->references('UserID')->on('Users');
-            $table->foreign('ReportedUser')->references('UserID')->on('Users');
+            $table->foreign('UserID')->references('UserId')->on('users')->onDelete('cascade');
+            $table->foreign('ReportedUser')->references('UserId')->on('users')->onDelete('cascade');
         });
     }
 

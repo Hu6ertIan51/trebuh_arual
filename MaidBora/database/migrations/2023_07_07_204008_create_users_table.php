@@ -27,11 +27,12 @@ class CreateUsersTable extends Migration
             $table->string('town');
             $table->string('password');
             $table->string('confpassword');
+            $table->string('bio');
             $table->timestamps();
-            $table->unsignedInteger('RoleID')->default(1);
+            $table->unsignedInteger('RoleID')->unique();
             
             //fk
-            $table->foreign('RoleID')->references('RoleID')->on('roles');     
+            $table->foreign('RoleID')->references('RoleID')->on('roles')->onDelete('cascade');     
     });
 }
 
