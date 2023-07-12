@@ -95,50 +95,8 @@
     </nav>
     
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
-      <div class="row min-vh-80 h-100">
-        
-          <div class ="row">
-                <div class='col-15'>
-                  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                  <h6 class="text-black text-capitalize ps-3">Available listings</h6>
-                    <div class="card-body px-0 pb-2">
-                      <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                          <thead>
-                              <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">NAME</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">JOB DECSRIPTION</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">LOCATION</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">STATUS</th>
-                                <th class="text-secondary opacity-7"></th>
-                                </tr>
-                            </thead>
-                                <tbody>
-                               </tbody>
+ 
 
-                    </h>    
-
-                </div>
-              </div>
-              
-              
-            </div>
-            <div>
-              <ul>
-              @foreach
-                <li>
-                  <!-- a funtion that checks your users if they're available,
-                 then stores those inside an array
-                 then returns that array into this session  -->
-                  <!-- if there are available lisitings, then list them in the form of a list which will appear as a box -->
-                 
-                </li>
-                @endforeach
-              </ul>
-            </div>
-        
-    </div>
     
   </div>
   </main>

@@ -36,11 +36,19 @@ Route::get('/Enrol', function () {
 //defining a route 
 //route::method('routeName/functionName',[nameController::class,'method']);
 
+Route::get('Worker/jobListing', function () {
+    return view('jobListing');
+});
 //WorkerController routes
 Route::get('Worker/SignUp',[WorkerController::class,'SignUp']);
 Route::get('Worker/SignUp',[WorkerController::class,'SignUp'])->name('WorkerDetails');
 Route::get('Worker/dashboard',[WorkerController::class,'dashboard']);
+Route::get('Worker/WorkProfile',[WorkerController::class,'WorkProfile'])->name('WorkerProfile');
 Route::post('/DetailsWorker', [WorkerController::class, 'adddetails'])->name('WorkDetails');
+Route::get('Worker/worker_settings',[WorkerController::class,'worker_settings'])->name('WorkerSettings');
+Route::get('Worker/job_listings',[WorkerController::class,'job_listings'])->name('JobListings');
+Route::get('Worker/accepted_jobs',[WorkerController::class,'accepted_jobs'])->name('AcceptedJobs');
+
 
 //EmployerControllerRoutes
 Route::get('Employer/SignUp',[EmployerController::class,'SignUp']);

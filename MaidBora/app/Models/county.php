@@ -9,7 +9,7 @@ class county extends Model
 {
     use HasFactory;
     protected $table = "county";
-    protected $primaryKey = "CountyId";
+    protected $primaryKey = "CountyID";
     protected $fillable = [ 'Name'];
 
     public function subcounty(){

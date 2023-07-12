@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\worker;
 
+use Illuminate\Http\Request as HttpRequest;
+
+
+
 
 class WorkerController extends Controller
 {
+   
+    public function AuthRegister(){
+        return view ('Worker.SignUp');// we need design a page for sign_up
+    }
     
     public function login(){
         return view ('signin');
@@ -17,8 +25,24 @@ class WorkerController extends Controller
         return view ('Worker.WorkerDashboard');
     }
 
+
     public function SignUp(){
         return view('Worker.WorkerDetails');
+    }
+    public function WorkProfile(){
+        return view('Worker.WorkerProfile');
+    }
+    //to get to the worker settings page
+    function worker_settings(){
+        return view('Worker.WorkerSettings');
+    }
+    //to get to the job listings that the worker can view
+    function job_listings(){
+        return view('Worker.JobListings');
+    }
+    //to get to accepted job requests
+    function accepted_Jobs(){
+        return view('Worker.AcceptedJobs');
     }
 
     public function adddetails(Request $request){
@@ -37,5 +61,11 @@ class WorkerController extends Controller
         $worker->save();
         //return response()->json(['message' => 'Data saved successfully']);
         return redirect()->route('Finish');
+    
+
+    /*public function add(){
+        $data=new worker();
+        $data::all();
+        return view();*/
     }
 }

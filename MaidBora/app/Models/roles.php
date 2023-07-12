@@ -12,10 +12,18 @@ class roles extends Model
     protected $primaryKey = "RoleID";
     protected $fillable = ['roleID','roleType'];
 
-    public function worker(){
-        return $this->belongsTo(worker::class);
+    public function worker()
+    {
+        return $this->hasOne(Worker::class);
     }
-    public function employer(){
-        return $this->belongsTo(employer::class);
+
+    public function employer()
+    {
+        return $this->hasOne(Employer::class);
+    }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
     }
 }

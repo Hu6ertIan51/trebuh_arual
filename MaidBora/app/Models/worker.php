@@ -17,4 +17,5 @@ class worker extends Model
     public function roles(){
         return $this->belongsTo(roles::class);
     }
+    
 }

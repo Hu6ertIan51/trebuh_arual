@@ -22,6 +22,9 @@ class employer extends Model
     public function roles (){
         return $this->belongsTo(roles::class);
     }
+    public function job_listing(){
+        return $this->hasMany(job_listing::class);
+    }
     
     
 }
