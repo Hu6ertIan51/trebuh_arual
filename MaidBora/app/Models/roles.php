@@ -16,6 +16,6 @@ class roles extends Model
         return $this->belongsTo(worker::class);
     }
     public function employer(){
-        return $this->belongsTo(employer::class);
+        return $this->hasOne(employer::class, 'roleid', 'RoleID');
     }
 }

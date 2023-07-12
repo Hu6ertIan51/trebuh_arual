@@ -243,19 +243,36 @@
         </div>
       </div>
     </div>
-    <form action="" method = "">
+    <form action="" method = "POST">
+      @csrf
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-md-8">
           <div class="card">
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
-                <p class="mb-0">Edit Profile</p>
+                <p class="mb-0">Profile Information</p>
                 <button type = "submit" class="btn btn-primary btn-sm ms-auto">Submit changes</button>
               </div>
             </div>
             <div class="card-body">
               <p class="text-uppercase text-sm">User Information</p>
+              <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">First name</label>
+                    <input required name = "firstname" class="form-control" type="text" value="Jesse">
+                  </div>
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Last name</label>
+                    <input required name = "lastname" class="form-control" type="text" value="Lucky">
+                  </div>
+              </div>
+              </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -263,34 +280,44 @@
                     <input required name = "username" class="form-control" type="text" value="lucky.jesse">
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Email address</label>
-                    <input required name = "email" class="form-control" type="email" value="jesse@example.com">
-                  </div>
                 </div>
-                <div class="col-md-6">
+              <div class="row">
+              <div class="col-md-6">
                   <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">First name</label>
-                    <input required name = "firstname" class="form-control" type="text" value="Jesse">
+                    <label for="example-text-input" class="form-control-label">Gender</label>
+                    <input required name = "gender" class="form-control" type="text" value="Lucky">
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Last name</label>
-                    <input required name = "lastname" class="form-control" type="text" value="Lucky">
-                  </div>
-                </div>
+              </div>
               </div>
               <hr class="horizontal dark">
               <p class="text-uppercase text-sm">Contact Information</p>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Phone number</label>
                     <input required name = "phone" class="form-control" type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
                   </div>
                 </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Email Address</label>
+                    <input required name = "email" class="form-control" type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                  </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">ID Number</label>
+                    <input required name = "IDNumber" class="form-control" type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                  </div>
+                </div>
+                </div>
+                <hr class="horizontal dark">
+                <p class="text-uppercase text-sm">Location Information</p>
+                <div class = "row">
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">County</label>

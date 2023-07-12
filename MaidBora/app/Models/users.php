@@ -15,4 +15,8 @@ class users extends Model
     public function roles(){
         return $this->hasOne(roles::class);
     }
+
+    public function userDetail(){
+        return $this->hasOne()
+    }
 }

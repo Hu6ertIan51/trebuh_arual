@@ -13,7 +13,7 @@ class employer extends Model
     //properties of the model 
     protected $table = "Employer";
     protected $primaryKey = "EmployerID";
-    protected $fillable = ['houseType','bedroomNo','bathroomNo','roleid'];
+    protected $fillable = ['houseType','bedroomNo','bathroomNo'];
 
     //relationships ()many
     public function workers(){
@@ -21,6 +21,10 @@ class employer extends Model
     }
     public function roles (){
         return $this->belongsTo(roles::class);
+    }
+
+    public function RolesDetail (){
+        return $this->hasOne(roles::class, 'roleid', 'EmployerID');
     }
     
     

@@ -14,11 +14,11 @@ class CreateSubcountyTable extends Migration
     public function up()
     {
         Schema::create('subcounty', function (Blueprint $table) {
-          $table->increments('SubId');
+          $table->id('SubId');
           $table->string('Name',100);
-          $table->unsignedInteger('CountyId');
+          $table->unsignedBigInteger('CountyId')->unique();
 
-          $table->foreign('CountyId')->references('CountyID')->on('county');
+          $table->foreign('CountyId')->references('CountyID')->on('county')->onDelete('cascade');
         });
     }
 

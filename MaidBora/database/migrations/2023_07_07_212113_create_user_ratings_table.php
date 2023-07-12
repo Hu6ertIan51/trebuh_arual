@@ -15,14 +15,14 @@ class CreateUserRatingsTable extends Migration
     {
         Schema::create('user_ratings', function (Blueprint $table) {
             $table->increments('RatingID');
-            $table->unsignedInteger('UserID');
-            $table->unsignedInteger('RatedUserID');
+            $table->unsignedInteger('UserID')->unique();
+            $table->unsignedInteger('RatedUserID')->unique();
             $table->unsignedInteger('Rating');
             $table->text('review_text');
             $table->timestamps();
 
-            $table->foreign('UserID')->references('UserID')->on('Users');
-            $table->foreign('RatedUserID')->references('UserID')->on('Users');
+            $table->foreign('UserID')->references('UserId')->on('users')->onDelete('cascade');
+            $table->foreign('RatedUserID')->references('UserId')->on('users')->onDelete('cascade');
         });
     }
 

@@ -31,6 +31,7 @@ Route::get('/Enrol', function () {
     return view('Enrol');
 });
 
+
 //roleController->all()
 
 //defining a route 
@@ -58,6 +59,7 @@ Route::get('User/SignIn', [UserController::class, 'SignIn']);
 Route::post('User/SignIn', [UserController::class, 'SignIn'])->name('SignIn');
 Route::post('/RegisterUser', [UserController::class, 'Finish'])->name('RegisterUser');
 Route::post('/LoginUser',[UserController::class, 'Login'])->name('Login');
+Route::get('/UserData', [UserController::class, 'FetchUser']);
 
 //RoleController
 Route::post('/SaveRole', [RoleController::class, 'addRole'])->name('SaveRole');

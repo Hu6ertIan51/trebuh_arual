@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\users;
 use Hash;
 use Session;
@@ -104,6 +105,12 @@ class UserController extends Controller
             
         }
 
+    }
+
+    public function FetchUser(){
+
+        $user = Auth::user();
+        return view('test', compact('user'));
     }
 
     
