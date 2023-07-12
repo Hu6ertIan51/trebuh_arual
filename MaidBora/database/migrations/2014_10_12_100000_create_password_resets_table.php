@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCountyTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateCountyTable extends Migration
      */
     public function up()
     {
-        Schema::create('county', function (Blueprint $table) {
-            $table->id('CountyID');
-            $table->string('Name',50);
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->primary();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -26,6 +27,6 @@ class CreateCountyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('county');
+        Schema::dropIfExists('password_resets');
     }
-}
+};
