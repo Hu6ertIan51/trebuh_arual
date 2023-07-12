@@ -8,6 +8,7 @@ use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\HomeController;
 //everytime we include a model in our code, specify that we're using it in the namespace
 
 
@@ -26,6 +27,9 @@ use App\Http\Controllers\RoleController;
 Route::get('/', function () {
     return view('Wlcome');
 });
+
+Route::get('/redirects', [HomeController::class, "index"]);
+
 
 Route::get('/Enrol', function () {
     return view('Enrol');
@@ -72,3 +76,13 @@ Route::get('/UserData', [UserController::class, 'FetchUser']);
 //RoleController
 Route::post('/SaveRole', [RoleController::class, 'addRole'])->name('SaveRole');
 Route::post('/Enrol', [RoleController::class, 'Enrol'])->name('Error');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
