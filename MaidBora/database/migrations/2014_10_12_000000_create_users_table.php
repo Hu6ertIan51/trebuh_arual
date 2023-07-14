@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use \App\Models\User;
 
 return new class extends Migration
 {
@@ -13,15 +14,21 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('username')->unique();
+            $table->string('gender');
+            $table->string('phone');
             $table->string('email')->unique();
-            $table->string('role')->default(0);
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('county');
+            $table->string('subcounty');
+            $table->string('town');
             $table->string('password');
+            $table->string('bio');
+            $table->integer('role')->default(User::WORKER_ROLE);
             $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
+            
         });
     }
 
@@ -33,3 +40,13 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
+/*
+$table->string('email')->unique();
+$table->string('county');
+$table->string('subcounty');
+$table->string('town');
+$table->string('password');
+$table->string('bio');
+$table->integer('role')->default(User::ADMIN_ROLE);
+$table->rememberToken();
+*/
