@@ -31,9 +31,9 @@ class Login extends Controller
             if($userrole == User::ADMIN_ROLE){
                 return redirect () -> intended (route('dashboard'));
             }elseif($userrole == User::EMPLOYER_ROLE){
-                return redirect () -> intended (route('Employer.employer'));
-            }else{
-                return redirect () -> intended (route('Worker.worker'));
+                return redirect () -> intended (route('empwork'));
+            }elseif($userrole == User::WORKER_ROLE){
+                return redirect () -> intended (route('worker'));
             }
             
             // can only access certain pages if they are logged in

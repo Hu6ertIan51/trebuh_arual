@@ -11,4 +11,11 @@ class dashboard extends Controller
         return view ('Components.admin');
 
     }
+    public function emp(){
+        return view ('Employer.employer');
+    }
+
+    public function worker(){
+        return view ('Worker.worker');
+    }
 }

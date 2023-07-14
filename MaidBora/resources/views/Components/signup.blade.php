@@ -47,7 +47,7 @@
                 <p class="mb-0">Enter your details to sign up</p>
               </div>
               <div class="card-body">
-                <form id="user sign up" method = "POST" action = "{{route('registerUser')}}" >
+                <form id="signup" method = "POST" action = "{{route('registerUser')}}" >
                   @csrf
                   <div class="mb-3">
                     <input type="text" required name = "firstname" class="form-control form-control-lg" placeholder="First Name" 
@@ -101,17 +101,13 @@
                   </div>
                   <div class="mb-3">
                     <input type="text" required name = "bio" class="form-control form-control-lg" placeholder="Write about yourself" 
-                    value = "{{old('bio')}}"
-                    >
-                    <div class="mb-3">
-                    <input type="text" required name = "Role" class="form-control form-control-lg" placeholder="Choose Role" 
-            
-                    value = "{{old('bio')}}"
-                    >
-                    <select required name = "role" form = "">
-                    <option> Please select role</option>
-                      <option value="2"> Employer</option>
-                      <option value="3"> Worker</option>
+                    value = "{{old('bio')}}">
+                  </div>
+                  <div class = "mb-3">
+                    <select required name = "role" form = "signup" placeholder = "Select role">
+                      <option> Please select role</option>
+                      <option value = "2" > Employer </option>
+                      <option value = "3" > Worker </option>
                     </select>
                   </div>
                   <div class="text-center">

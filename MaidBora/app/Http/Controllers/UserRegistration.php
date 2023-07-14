@@ -25,6 +25,7 @@ class UserRegistration extends Controller
             'town' => 'required',
             'password' => 'required', 'confirmed',
             'bio' => 'required',
+            'role' => 'required'
             ]);
 
         $user = new User();
@@ -39,6 +40,7 @@ class UserRegistration extends Controller
         $user->town = $request->town;
         $user->password = Hash::make($request->password);
         $user->bio = $request->bio;
+        $user->role = $request->role;
 
         $user->save();
 

@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    
     const ADMIN_ROLE = 1;
     const EMPLOYER_ROLE = 2;
     const WORKER_ROLE = 3;
@@ -35,7 +36,8 @@ class User extends Authenticatable
         'subcounty',
         'town',
         'password',
-        'bio'
+        'bio',
+        'role'
     ];
 
     /**

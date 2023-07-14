@@ -24,6 +24,8 @@ Route::get('/login', [Login::class, 'LoginPage'])->name('login');
 Route::post('/login', [Login::class, 'auth'])->name('authenticate');
 Route::get('/UserReg', [UserRegistration::class,'Register']);
 Route::post('/UserReg', [UserRegistration::class,'createUser'])->name('registerUser');
+Route::get('/employer', [dashboard::class, 'emp'])->name('empwork');
+Route::get('/worker', [dashboard::class, 'worker'])->name('worker');
 
 Route::middleware(['auth']) -> group (function(){
 Route::get('/dashboard',[dashboard::class, 'dash'])->name('dashboard');
