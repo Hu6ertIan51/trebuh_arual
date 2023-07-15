@@ -12,7 +12,11 @@ class dashboard extends Controller
 
     }
     public function emp(){
-        return view ('Employer.employer');
+        return view ('Employer.Empdash');
+    }
+
+    public function empProfile(){
+        return view ('Employer.Emprofile');
     }
 
     public function worker(){

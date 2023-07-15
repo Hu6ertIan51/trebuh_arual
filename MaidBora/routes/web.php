@@ -26,6 +26,8 @@ Route::get('/UserReg', [UserRegistration::class,'Register']);
 Route::post('/UserReg', [UserRegistration::class,'createUser'])->name('registerUser');
 Route::get('/employer', [dashboard::class, 'emp'])->name('empwork');
 Route::get('/worker', [dashboard::class, 'worker'])->name('worker');
+Route::get('/profile', [dashboard::class, 'empProfile'])->name('emprofile');
+
 
 Route::middleware(['auth']) -> group (function(){
 Route::get('/dashboard',[dashboard::class, 'dash'])->name('dashboard');
