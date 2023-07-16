@@ -34,12 +34,41 @@
                 <h4 class="font-weight-bolder">Available jobs</h4>
                
               </div>
-              <div class="card-body">
-                <p>Here are the jobs motherfuckers </p>
-              </div>
+              @foreach ($jobPosts as $jobPost)
+          <div class="card">
+            <div class="card-body">
+            <h5 class="card-title">{{ $jobPost->jobTitle }}</h5>
+            <p class="card-text">{{ $jobPost->jobDescription }}</p>
+            <p class="card-text">Salary: {{ $jobPost->salary }}</p>
+            <button class="btn btn-primary" onclick="requestJob({{ $jobPost->id }})">Request</button>
+          </div>
+          </div>
+              @endforeach
               <div class="card-footer text-center pt-0 px-lg-2 px-1">
               <script src="{{URL::to('js_1/core/popper.min.js')}}" type="text/javascript"></script>
   <script src="{{URL::to('js_1/core/bootstrap.min.js')}}" type="text/javascript"></script>
+  <!--<script>
+    function requestJob(jobId) {
+        // You can use JavaScript to make an AJAX request to post the worker's profile link to another page
+        // Example AJAX request using jQuery:
+        $.ajax({
+            url: '/request-job',
+            method: 'POST',
+            data: {
+                job_id: jobId,
+                worker_profile_link: 'worker-profile-link-goes-here'
+            },
+            success: function(response) {
+                // Handle the success response
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                // Handle the error
+                console.log(xhr.responseText);
+            }
+        });
+    }
+</script> -->
   <script src="{{URL::to('js_1/plugins/perfect-scrollbar.min.js')}}"></script>
   <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
   <script src="../assets/js/plugins/parallax.min.js"></script>
