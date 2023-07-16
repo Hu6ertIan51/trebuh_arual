@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\UserRegistration;
 use App\Http\Controllers\dashboard;
+use App\Http\Controllers\EmployerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,13 @@ Route::get('/UserReg', [UserRegistration::class,'Register']);
 Route::post('/UserReg', [UserRegistration::class,'createUser'])->name('registerUser');
 Route::get('/employer', [dashboard::class, 'emp'])->name('empwork');
 Route::get('/worker', [dashboard::class, 'worker'])->name('worker');
-Route::get('/profile', [dashboard::class, 'empProfile'])->name('emprofile');
+Route::get('/profile', [dashboard::class, 'showProfile'])->name('emprofile');
+
+Route::post('/saveEmployer', [EmployerController::class,'saveEmployer'])->name('savemployer');
+Route::get('/Empdetails', [dashboard::class, 'showDetails'])->name('empdetails');
+
+
+
 
 
 Route::middleware(['auth']) -> group (function(){

@@ -109,7 +109,13 @@
             <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
           </ol>
-          <h6 class="text-white font-weight-bolder ms-2">Profile</h6>
+          <h6 class="text-white font-weight-bolder ms-2">{{$user->firstname}}'s Profile</h6>
+          <h6 class="text-white font-weight-bolder ms-2">@if (Session::has('success'))
+                <div class="alert alert-success">
+                {{ Session::get('success') }}
+                </div>
+                @endif
+            </h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -205,17 +211,17 @@
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Sayo Kravits
+              {{ $user->firstname }} {{ $user->lastname}}
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
-                Public Relations
+                Employer Details
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <form action="" method = "POST">
+    <form >
       @csrf
     <div class="container-fluid py-4">
       <div class="row">
@@ -224,7 +230,7 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0">Profile Information</p>
-                <button type = "submit" class="btn btn-primary btn-sm ms-auto">Submit changes</button>
+                <button type = "submit" class="btn btn-primary btn-sm ms-auto">UPDATE INFORMATION</button>
               </div>
             </div>
             <div class="card-body">
@@ -233,7 +239,7 @@
               <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">First name</label>
-                    <input required name = "firstname" class="form-control" type="text" value="Jesse">
+                    <input required name = "firstname" class="form-control" type="text" value="{{ $user->firstname }}">
                   </div>
               </div>
               </div>
@@ -241,7 +247,7 @@
               <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Last name</label>
-                    <input required name = "lastname" class="form-control" type="text" value="Lucky">
+                    <input required name = "lastname" class="form-control" type="text" value="{{ $user->lastname }}">
                   </div>
               </div>
               </div>
@@ -249,7 +255,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Username</label>
-                    <input required name = "username" class="form-control" type="text" value="lucky.jesse">
+                    <input required name = "username" class="form-control" type="text" value="{{ $user->username }}">
                   </div>
                 </div>
                 </div>
@@ -257,7 +263,7 @@
               <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Gender</label>
-                    <input required name = "gender" class="form-control" type="text" value="Lucky">
+                    <input required name = "gender" class="form-control" type="text" value="{{ $user->gender}}">
                   </div>
               </div>
               </div>
@@ -267,7 +273,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Phone number</label>
-                    <input required name = "phone" class="form-control" type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                    <input required name = "phone" class="form-control" type="text" value="{{ $user->phone }}">
                   </div>
                 </div>
                 </div>
@@ -275,7 +281,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Email Address</label>
-                    <input required name = "email" class="form-control" type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                    <input required name = "email" class="form-control" type="text" value="{{ $user->email}}">
                   </div>
                 </div>
                 </div>
@@ -285,19 +291,19 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">County</label>
-                    <input required name = "county" class="form-control" type="text" value="New York">
+                    <input required name = "county" class="form-control" type="text" value="{{ $user->county }}">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Sub County</label>
-                    <input required name = "subcounty" class="form-control" type="text" value="United States">
+                    <input required name = "subcounty" class="form-control" type="text" value="{{ $user->subcounty}}">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Town</label>
-                    <input required name = "town" class="form-control" type="text" value="437300">
+                    <input required name = "town" class="form-control" type="text" value="{{ $user->town}}">
                   </div>
                 </div>
               </div>
@@ -307,14 +313,46 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">About me</label>
-                    <input class="form-control" type="text" value="A beautiful Dashboard for Bootstrap 5. It is Free and Open Source.">
+                    <input class="form-control" type="text" value="{{ $user->bio}}">
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
     </form>
+    <form action = "{{route('savemployer')}}" method = "POST">
+                @csrf
+              <hr class="horizontal dark">
+              <p class="text-uppercase text-sm">Employer House Details Form</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">House Type</label>
+                    <input required name = "housetype" class="form-control" type="text" value="{{$user->housetype}}" placeholder ="House Type"> 
+                  </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">No. of bathrooms</label>
+                    <input required name = "bathroomNo" class="form-control" type="text" value="" placeholder = "Number of bathrooms">
+                  </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">No. of bedrooms</label>
+                    <input required name = "bedroomNo" class="form-control" type="text" value="" placeholder = "Number of bedrooms">
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                <button type = "submit" class="btn btn-primary btn-sm ms-auto">SAVE DETAILS</button>
+              </div>
+              </div>
+</div>
+      </form>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="fa fa-cog py-2"> </i>

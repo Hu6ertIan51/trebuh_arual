@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Hash;
 
@@ -45,6 +46,7 @@ class UserRegistration extends Controller
         $user->save();
 
         if ($user and $user -> id > 0){
+            Session::flash('success', 'Registration successful! Please log in to continue.');
             return redirect (route('login'));
         }
         else{

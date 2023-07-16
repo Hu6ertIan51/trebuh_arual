@@ -45,6 +45,13 @@
               <div class="card-header pb-0 text-left">
                 <h4 class="font-weight-bolder">Sign In</h4>
                 <p class="mb-0">Enter your email and password to sign in</p>
+                <p class="mb-0">
+                @if (Session::has('success'))
+                <div class="alert alert-success">
+                {{ Session::get('success') }}
+                </div>
+                @endif
+                </p>
               </div>
               <div class="card-body">
                 <form role="form" action = "{{route('authenticate')}}" method = "POST" class = "needs-validation" novalidate ="">

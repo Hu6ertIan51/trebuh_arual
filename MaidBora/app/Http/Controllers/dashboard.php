@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Employer;
 
 class dashboard extends Controller
 {
@@ -12,14 +15,20 @@ class dashboard extends Controller
 
     }
     public function emp(){
-        return view ('Employer.Empdash');
+        $userID = Auth::user() -> id ;
+        $user = User::find($userID);
+        return view('Employer.Empdash', compact('user'));
     }
 
-    public function empProfile(){
-        return view ('Employer.Emprofile');
+    public function showProfile(){
+        $userID = Auth::user() -> id ;
+        $user = User::find($userID);
+        return view('Employer.Emprofile', compact('user'));
     }
 
     public function worker(){
         return view ('Worker.worker');
     }
+
+    
 }
