@@ -27,6 +27,7 @@ class dashboard extends Controller
 
     public function worker(){
         return view ('Worker.worker');
+        $user = User::find($userID);
     }
 
     public function workerFunc(){
