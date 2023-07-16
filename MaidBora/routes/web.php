@@ -5,6 +5,7 @@ use App\Http\Controllers\Login;
 use App\Http\Controllers\UserRegistration;
 use App\Http\Controllers\dashboard;
 use App\Http\Controllers\WorkerController;
+use App\Http\Controllers\EmployerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,7 @@ Route::post('/DetailsWorker', [WorkerController::class, 'adddetails'])->name('Wo
 Route::get('Worker/worker_settings',[WorkerController::class,'worker_settings'])->name('WorkerSettings');
 Route::get('Worker/job_listings',[WorkerController::class,'job_listings'])->name('JobListings');
 Route::get('Worker/JobReqs',[WorkerController::class,'job_requests'])->name('workerRequests');
-Route::get('Worker/ApplicationForm', [dashboard::class, 'empProfile'])->name('emprofile');
+// Route::get('Worker/ApplicationForm', [dashboard::class, 'empProfile'])->name('emprofile');
 Route::get('/UserReg', [UserRegistration::class,'Register']);
 //Route::get('/showProfile', [dashboard::class,'workerFunc']);
 

@@ -71,7 +71,7 @@
               <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
               <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
             </ol>
-            <h6 class="text-white font-weight-bolder ms-2">Motherfucker's Profile</h6>
+            <h6 class="text-white font-weight-bolder ms-2">{{$user->firstname}}'s Profile</h6>
           </nav>
           <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
           
@@ -104,7 +104,7 @@
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-              lol
+              {{$user->firstname}} {{$user->lastname}}  
               
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
@@ -217,7 +217,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">About me</label>
-                    <input class="form-control" type="text" value="lol">
+                    <input class="form-control" type="text" value="{{$user->bio}}">
                   </div>
                 </div>
               </div>
@@ -233,24 +233,24 @@
  <div class="row">
  <div class="col-md-6">
  <div class="form-group">
- <label for="example-text-input" class="form-control-label"> Job Type</label>
- <input required name = "housetype" class="form-control" type="text" value="{{$user->housetype}}" placeholder ="House Type"> 
+ <label for="example-text-input" class="form-control-label">Job Type</label>
+ <input required name = "jobtype" class="form-control" type="text" value="" placeholder ="Enter Job Category"> 
  </div>
  </div>
  </div>
  <div class="row">
  <div class="col-md-6">
  <div class="form-group">
-<label for="example-text-input" class="form-control-label">expected Salary</label>
-<input required name = "bathroomNo" class="form-control" type="text" value="" placeholder = "Number of bathrooms">
+<label for="example-text-input" class="form-control-label">Expected Salary</label>
+<input required name = "salary" class="form-control" type="text" value="" placeholder = "Expected Salary Amount">
 </div>
  </div>
 </div>
 <div class="row">
  <div class="col-md-6">
 <div class="form-group">
- <label for="example-text-input" class="form-control-label">No. of bedrooms</label>
-<input required name = "bedroomNo" class="form-control" type="text" value="" placeholder = "Number of bedrooms">
+ <label for="example-text-input" class="form-control-label">Job Duration</label>
+<input required name = "duration" class="form-control" type="text" value="" placeholder = "Job Duration">
 </div>
 </div>
 <div class="d-flex align-items-center">
