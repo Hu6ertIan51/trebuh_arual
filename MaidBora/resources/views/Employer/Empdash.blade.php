@@ -197,7 +197,11 @@
         <i class="fas fa-plus"></i> ADD JOB LISTING
       </a>
     </div>
-    
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">

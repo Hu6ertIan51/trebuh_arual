@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('job_post', function (Blueprint $table) {
             $table->id('jobID');
-            $table->unsignedBigInteger('employerID');
+            $table->unsignedBigInteger('user_id');
             $table->string('jobTitle');
             $table->text('jobDescription');
             $table->string('jobCategory');
@@ -21,6 +21,11 @@ return new class extends Migration
             $table->string('employmentType');
             $table->boolean('status')->default(false);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unique(['user_id', 'jobTitle']);
+
+            
         });
     }
 

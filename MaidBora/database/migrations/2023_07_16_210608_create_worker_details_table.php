@@ -10,15 +10,12 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
+    { 
         Schema::create('worker_details', function (Blueprint $table) {
             $table->id();
-            $table->housetype();
-            $table->bathroomNo();
-            $table->duration();
-
-
-
+            $table->string('housetype');
+            $table->string('bathroomNo');
+            $table->string('duration');
             $table->unsignedBigInteger('user_id')->unique();
             $table->timestamps();
         });

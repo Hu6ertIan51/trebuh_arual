@@ -47,7 +47,7 @@
                 <p class="mb-0">Enter your details to post job</p>
               </div>
               <div class="card-body">
-                <form id="signup" method = "POST" action = "" >
+                <form id="signup" method = "POST" action = "{{route('jobcreated')}}" >
                   @csrf
                   <div class="mb-3">
                     <input type="text" required name = "jobTitle" class="form-control form-control-lg" placeholder="Job Title" 
