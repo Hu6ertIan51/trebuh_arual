@@ -6,6 +6,7 @@ use App\Http\Controllers\UserRegistration;
 use App\Http\Controllers\dashboard;
 use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\Listings;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::get('/profile', [dashboard::class, 'showProfile'])->name('emprofile');
 
 Route::post('/saveEmployer', [EmployerController::class,'saveEmployer'])->name('savemployer');
 Route::get('/Empdetails', [dashboard::class, 'showDetails'])->name('empdetails');
-
+Route::Get('/Listing', [Listings::class, 'PostListing'])->name('listings');
 
 
 

@@ -191,6 +191,12 @@
       </div>
     </nav>
     <!-- End Navbar -->
+
+    <div class="d-flex justify-content-center mt-5">
+      <a class="btn btn-primary" href="{{route('listings')}}">
+        <i class="fas fa-plus"></i> ADD JOB LISTING
+      </a>
+    </div>
     
       <footer class="footer pt-3  ">
         <div class="container-fluid">
