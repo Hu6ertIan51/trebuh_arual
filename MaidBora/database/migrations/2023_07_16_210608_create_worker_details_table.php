@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('worker_details', function (Blueprint $table) {
             $table->id();
+            $table->housetype();
+            $table->bathroomNo();
+            $table->duration();
+
+
+
+            $table->unsignedBigInteger('user_id')->unique();
             $table->timestamps();
         });
     }
@@ -22,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('worker_details');
+        Schema::dropIfExists('worker_details')->onDelete('cascade');
     }
 };
