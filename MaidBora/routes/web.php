@@ -30,6 +30,9 @@ Route::get('/employer', [dashboard::class, 'emp'])->name('empwork');
 Route::get('/worker', [dashboard::class, 'worker'])->name('worker');
 Route::get('/profile', [dashboard::class, 'empProfile'])->name('emprofile');
 
+Route::post('/saveEmployer', [EmployerController::class,'saveEmployer'])->name('savemployer');
+Route::get('/Empdetails', [dashboard::class, 'showDetails'])->name('empdetails');
+
 //worker routes 
 Route::get('Worker/WorkProfile',[dashboard::class,'workerFunc'])->name('worker');
 Route::post('/DetailsWorker', [WorkerController::class, 'adddetails'])->name('WorkDetails');
