@@ -29,8 +29,9 @@ class WorkerController extends Controller
     public function SignUp(){
         return view('Worker.WorkerDetails');
     }
+
     public function WorkProfile(){
-        return view('Worker.WorkerProfile');
+        return view('Worker.worker');
     }
     //to get to the worker settings page
     function worker_settings(){
@@ -40,9 +41,18 @@ class WorkerController extends Controller
     function job_listings(){
         return view('Worker.JobListings');
     }
-    //to get to accepted job requests
-    function accepted_Jobs(){
-        return view('Worker.AcceptedJobs');
+
+    function job_requests(){
+        return view('Worker.workerRequests');
+    }
+   
+   
+    //function to fetch data from db and show on profile page
+    function showProfile(){
+        $user = auth()->user(); 
+        $userData = User::find($user->id);
+        return view('Worker.worker', compact('user'));
+
     }
 
     public function adddetails(Request $request){

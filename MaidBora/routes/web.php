@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\UserRegistration;
 use App\Http\Controllers\dashboard;
+use App\Http\Controllers\WorkerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,9 @@ use App\Http\Controllers\dashboard;
 
 
  Route::get('/', function () {
-    return view('Login.login'); //Login.login
+    return view('Login.login'); 
 });
+
 Route::get('/login', [Login::class, 'LoginPage'])->name('login');
 Route::post('/login', [Login::class, 'auth'])->name('authenticate');
 Route::get('/UserReg', [UserRegistration::class,'Register']);
@@ -29,12 +31,15 @@ Route::get('/worker', [dashboard::class, 'worker'])->name('worker');
 Route::get('/profile', [dashboard::class, 'empProfile'])->name('emprofile');
 
 //worker routes 
-Route::get('Worker/WorkProfile',[WorkerController::class,'WorkProfile'])->name('WorkerProfile');
+Route::get('Worker/WorkProfile',[dashboard::class,'workerFunc'])->name('worker');
 Route::post('/DetailsWorker', [WorkerController::class, 'adddetails'])->name('WorkDetails');
 Route::get('Worker/worker_settings',[WorkerController::class,'worker_settings'])->name('WorkerSettings');
 Route::get('Worker/job_listings',[WorkerController::class,'job_listings'])->name('JobListings');
-Route::get('Worker/accepted_jobs',[WorkerController::class,'accepted_jobs'])->name('AcceptedJobs');
+Route::get('Worker/JobReqs',[WorkerController::class,'job_requests'])->name('workerRequests');
 Route::get('Worker/ApplicationForm', [dashboard::class, 'empProfile'])->name('emprofile');
+Route::get('/UserReg', [UserRegistration::class,'Register']);
+//Route::get('/showProfile', [dashboard::class,'workerFunc']);
+
 
 
 Route::middleware(['auth']) -> group (function(){
