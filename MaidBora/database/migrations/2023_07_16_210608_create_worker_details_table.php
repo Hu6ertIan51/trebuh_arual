@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('worker_details', function (Blueprint $table) {
             $table->id();
             $table->string('housetype');
-            $table->string('bathroomNo');
-            $table->string('duration');
+            $table->integer('bathroomNo');
+            $table->integer('duration');
             $table->unsignedBigInteger('user_id')->unique();
             $table->timestamps();
         });
