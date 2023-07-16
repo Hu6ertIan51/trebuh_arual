@@ -34,7 +34,9 @@ Route::get('/profile', [dashboard::class, 'showProfile'])->name('emprofile');
 
 Route::post('/saveEmployer', [EmployerController::class,'saveEmployer'])->name('savemployer');
 Route::get('/Empdetails', [dashboard::class, 'showDetails'])->name('empdetails');
-Route::Get('/Listing', [Listings::class, 'PostListing'])->name('listings');
+Route::get('/Listing', [Listings::class, 'PostListing'])->name('listings');
+Route::post('/JobPosted', [Listings::class, 'createListing'])->name('jobcreated')->middleware('auth');
+
 
 
 
