@@ -224,7 +224,41 @@
             </div>
           </div>
         </div>
+        
     </form>
+    <form action = "" method = "POST">
+ @csrf
+ <hr class="horizontal dark">
+ <p class="text-uppercase text-sm">Employer House Details Form</p>
+ <div class="row">
+ <div class="col-md-6">
+ <div class="form-group">
+ <label for="example-text-input" class="form-control-label"> Job Type</label>
+ <input required name = "housetype" class="form-control" type="text" value="{{$user->housetype}}" placeholder ="House Type"> 
+ </div>
+ </div>
+ </div>
+ <div class="row">
+ <div class="col-md-6">
+ <div class="form-group">
+<label for="example-text-input" class="form-control-label">expected Salary</label>
+<input required name = "bathroomNo" class="form-control" type="text" value="" placeholder = "Number of bathrooms">
+</div>
+ </div>
+</div>
+<div class="row">
+ <div class="col-md-6">
+<div class="form-group">
+ <label for="example-text-input" class="form-control-label">No. of bedrooms</label>
+<input required name = "bedroomNo" class="form-control" type="text" value="" placeholder = "Number of bedrooms">
+</div>
+</div>
+<div class="d-flex align-items-center">
+ <button type = "submit" class="btn btn-primary btn-sm ms-auto">SAVE DETAILS</button>
+ </div>
+</div>
+</div>
+</form>
               <hr class="horizontal dark">
               
               <div class="row">

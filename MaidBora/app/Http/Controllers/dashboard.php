@@ -15,15 +15,18 @@ class dashboard extends Controller
 
     }
     public function emp(){
-        return view ('Employer.Empdash');
+        return view ('Employer.Empdash'); 
     }
 
     public function empProfile(){
         return view ('Employer.Emprofile');
+        $user = User::find($userID);
+
     }
 
     public function worker(){
         return view ('Worker.worker');
+        $user = User::find($userID);
     }
 
     public function workerFunc(){
