@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\worker;
-
+use App\Models\Joblist;
 use Illuminate\Http\Request as HttpRequest;
 
 
@@ -38,12 +38,15 @@ class WorkerController extends Controller
         return view('Worker.WorkerSettings');
     }
     //to get to the job listings that the worker can view
-    function job_listings(){
-        return view('Worker.JobListings');
-    }
+    
 
     function job_requests(){
         return view('Worker.workerRequests');
+    }
+    public function job_listings()
+    {
+        $jobPosts = Joblist::all();
+        return view('Worker.JobListings', compact('jobPosts'));
     }
    
    
@@ -54,6 +57,16 @@ class WorkerController extends Controller
         return view('Worker.worker', compact('user'));
 
     }
+    public function requestJob(Request $request)
+{
+ 
+    $jobId = $request->input('jobID');
+    $workerProfileLink = $request->input('worker_profile_link');
+
+    // Perform the necessary actions, such as storing the job request in the database
+
+    return response()->json(['message' => 'Job request successful']);
+}
 
     public function adddetails(Request $request){
         $request->validate([
