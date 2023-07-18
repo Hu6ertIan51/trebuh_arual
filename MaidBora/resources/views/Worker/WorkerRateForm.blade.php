@@ -32,7 +32,7 @@
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
 <h4 class="font-weight-bolder">RATINGS</h4>
-                <p class="mb-0">Rate your employer</p>
+                <p class="mb-0">Rate the user</p>
               </div>
               <div class="card-body">
                 <form role="form" action = "{{route('authenticate')}}" method = "POST" class = "needs-validation" novalidate ="">
