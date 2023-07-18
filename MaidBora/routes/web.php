@@ -61,6 +61,7 @@ Route::get('/WorkerRateForm', [WorkerController::class, 'workerRateEmp'])->name(
 //Job Requests
 Route::post('/jobRequest/{joblist}/send-request', [JobRequest::class, 'sendRequest'])->name('joblistings.request');
 Route::get('/JobRequests', [JobRequest::class, 'Jobrequestview']);
+Route::get('');
 
 Route::middleware(['auth']) -> group (function(){
 Route::get('/dashboard',[dashboard::class, 'dash'])->name('dashboard');

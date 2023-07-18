@@ -79,6 +79,11 @@
               <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
             </ol>
             <h6 class="text-white font-weight-bolder ms-2">{{$user->firstname}}'s Profile</h6>
+            @if (Session::has('success'))
+                <div class="alert alert-success">
+                {{ Session::get('success') }}
+                </div>
+                @endif
           </nav>
           <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
           

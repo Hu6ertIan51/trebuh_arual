@@ -39,5 +39,9 @@ class EmployerController extends Controller
     return redirect (route('emprofile'));
     }
 
+    public function viewRequests(){
+        return view ('EmpRequest');
+    }
+
 
 }
