@@ -29,7 +29,7 @@ class JobRequest extends Controller
 
         $requestData = [
             'user_id' => Auth::id(),
-            'joblist_id' => $joblist->jobID,
+            'joblist_id' => $joblist->user_id,
         ];
 
         // Save the request data in the jobrequest table

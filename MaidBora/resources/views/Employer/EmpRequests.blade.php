@@ -22,6 +22,12 @@
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <style>
+        /* Apply number display for <li> elements */
+        ul {
+            list-style-type: decimal; /* Use decimal for numbers, "disc" for bullets */
+        }
+    </style>
 </head>
 <body class="sign-in-illustration">
   <!-- Navbar -->
@@ -34,7 +40,7 @@
                 <h4 class="font-weight-bolder">Your Job Requests</h4>
               </div>
               @if($jobrequest->isEmpty())
-                <p>No job requests found.</p>
+                <p>You have no Job requests</p>
                 @else
                 <ul>
              @foreach ($jobrequest as $jobRequest)
@@ -50,16 +56,17 @@
             </p>
                 <!-- Display other relevant job details here -->
             </li>
+            <form action="{{ route('acceptrequest', ['jobRequest' => $jobRequest->id]) }}" method="POST" class="d-flex">
+        @csrf
+        <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">Accept</button>
+        </form>
+        <form action="" method="POST">
+    @csrf
+    <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">Deny</button>
+    </form>
         @endforeach
     </ul>
 @endif
-@foreach ($jobrequest as $jobRequest)
-
-    <form action="{{ route('acceptrequest', ['jobRequest' => $jobRequest->id]) }}" method="POST">
-        @csrf
-        <button type="submit">Accept</button>
-    </form>
-@endforeach
 </div>
 <div class="card-footer text-center pt-0 px-lg-2 px-1">
 <script src="{{URL::to('js_1/core/popper.min.js')}}" type="text/javascript"></script>
