@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Rare User
+    Rate Employer
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -38,13 +38,15 @@
                 <form role="form" action = "{{route('authenticate')}}" method = "POST" class = "needs-validation" novalidate ="">
                   @csrf
                   <div class="mb-3">
-                    <input type="text" required name = "username" class="form-control form-control-lg" placeholder="rating" value = "{{old('username')}}" 
+                    <input type="text" required name = "Rating" class="form-control form-control-lg" placeholder="Rating out of 5" id="ratingInput" name="Rating" min="1" max="5" 
                     tabindex = "1" required = "required" autofocus= "autofocus">
                   </div>
                   <div class="mb-3">
-                    <input type="text" required name = "age" class="form-control form-control-lg" placeholder="comment" 
+                    <input type="text" required name = "Review" class="form-control form-control-lg" placeholder="Comment" id="reviewInput" name="review" rows="3"
                     value = "" required = "required">
-                  
+                    <input type="hidden" name="RaterID" value="{{ auth()->user()->id }}">
+                      <input type="hidden" name="RaterUserId" value="{{ auth()->user()->id  }}">
+                    
                     <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">RATE USER</button>
                   </div>
                 </form>

@@ -26,23 +26,58 @@ class WorkerController extends Controller
     }
 
 
+    public function workerRateEmp(){
+        return view ('Worker.WorkerRateForm');// we need design a page for sign_up
+    }
+
+    //function to return the $jobId and &RatedUserId to the rating form as hidden required fields
+    public function showRatingForm($jobId, $ratedUserId)
+    {
+        return view('ratingForm', compact('jobId', 'ratedUserId'));
+    }
+    
+    //function to store users ratings, update average rating and redirect to homepage
+    public function store(Request $request)
+{
+
+    // Validate the request data
+    $validatedData = $request->validate([
+        'RaterID' => 'required',
+        'Review' => 'required',
+        'Rating' => 'required|integer|min:1|max:5',
+        'RatedUserId' => 'required',
+        'JobId' => 'required',
+    ]);
+
+    // Save the new rating
+    $rating = Rating::create($validatedData);
+
+    // Calculate the new average rating for the rated user
+    $averageRating = Rating::where('RatedUserId', $request->input('RatedUserId'))->avg('Rating');
+
+    // Update the average rating in the users table for the rated user
+    DB::table("users")
+        ->where("id", $request->input("RatedUserId"))
+        ->update(["average_rating" => $averageRating]);
+
+    return redirect()->back()->with("success", "Rating submitted successfully.");
+}
+
+    
     public function SignUp(){
         return view('Worker.WorkerDetails');
     }
 
+    //function to show the worker's profile
     public function WorkProfile(){
         return view('Worker.worker');
     }
-    //to get to the worker settings page
-    function worker_settings(){
-        return view('Worker.WorkerSettings');
-    }
-    //to get to the job listings that the worker can view
-    
 
+    //function to get to the workers requests and their status 
     function job_requests(){
         return view('Worker.workerRequests');
     }
+
     public function job_listings()
     {
         $jobPosts = Joblist::all();

@@ -14,5 +14,10 @@ class Joblist extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function rate() // previously called ratings
+{
+    return $this->hasMany(Rating::class);
+}
 }
 

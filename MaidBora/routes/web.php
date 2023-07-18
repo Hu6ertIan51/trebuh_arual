@@ -30,15 +30,13 @@ Route::get('/UserReg', [UserRegistration::class,'Register']);
 Route::post('/UserReg', [UserRegistration::class,'createUser'])->name('registerUser');
 Route::get('/employer', [dashboard::class, 'emp'])->name('empwork');
 Route::get('/worker', [dashboard::class, 'worker'])->name('worker');
+Route::get('/profile', [dashboard::class, 'empProfile'])->name('emprofile');
 Route::get('/profile', [dashboard::class, 'showProfile'])->name('emprofile');
 
 Route::post('/saveEmployer', [EmployerController::class,'saveEmployer'])->name('savemployer');
 Route::get('/Empdetails', [dashboard::class, 'showDetails'])->name('empdetails');
 Route::get('/Listing', [Listings::class, 'PostListing'])->name('listings');
 Route::post('/JobPosted', [Listings::class, 'createListing'])->name('jobcreated')->middleware('auth');
-
-
-
 
 Route::post('/saveEmployer', [EmployerController::class,'saveEmployer'])->name('savemployer');
 Route::get('/Empdetails', [dashboard::class, 'showDetails'])->name('empdetails');
@@ -51,8 +49,12 @@ Route::get('Worker/job_listings',[WorkerController::class,'job_listings'])->name
 Route::get('Worker/JobReqs',[WorkerController::class,'job_requests'])->name('workerRequests');
 // Route::get('Worker/ApplicationForm', [dashboard::class, 'empProfile'])->name('emprofile');
 Route::get('/UserReg', [UserRegistration::class,'Register']);
+Route::post('/sendRequest', [WorkerController::class, 'requestJob']);
+
 //Route::get('/showProfile', [dashboard::class,'workerFunc']);
 
+//rating routes 
+Route::get('/WorkerRateForm', [WorkerController::class, 'workerRateEmp'])->name('WorkerRateForm');
 
 
 Route::middleware(['auth']) -> group (function(){

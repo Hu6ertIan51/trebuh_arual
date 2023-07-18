@@ -28,6 +28,8 @@ return new class extends Migration
             $table->integer('role')->default(User::WORKER_ROLE);
             $table->rememberToken();
             $table->timestamps();
+
+           
             
         });
     }
