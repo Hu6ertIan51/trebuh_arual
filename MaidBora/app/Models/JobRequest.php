@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class JobRequest extends Model
 {
     use HasFactory;
+    protected $table = "jobrequest";
+    protected $primaryKey = "id";
+    protected $fillable = ['user_id','joblist_id','status'];
+
+    public function joblist()
+    {
+        return $this->belongsTo(Joblist::class, 'joblist_id');
+    }
 }

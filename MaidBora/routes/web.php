@@ -8,6 +8,8 @@ use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\Listings;
 use App\Http\Controllers\JobRequest;
+use App\Http\Controllers\AcceptRequest;
+
 
 
 /*
@@ -61,7 +63,8 @@ Route::get('/WorkerRateForm', [WorkerController::class, 'workerRateEmp'])->name(
 //Job Requests
 Route::post('/jobRequest/{joblist}/send-request', [JobRequest::class, 'sendRequest'])->name('joblistings.request');
 Route::get('/JobRequests', [JobRequest::class, 'Jobrequestview']);
-Route::get('');
+Route::get('/EmployerRequests', [EmployerController::class, 'viewRequests']);
+Route::post('/AcceptRequest/{jobRequest}/accept',[AcceptRequest::class, 'acceptRequest'])->name('acceptrequest');
 
 Route::middleware(['auth']) -> group (function(){
 Route::get('/dashboard',[dashboard::class, 'dash'])->name('dashboard');

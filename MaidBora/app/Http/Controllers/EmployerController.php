@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use App\Models\Employer;
+use App\Models\JobRequest;
 
 class EmployerController extends Controller
 {
@@ -40,7 +41,16 @@ class EmployerController extends Controller
     }
 
     public function viewRequests(){
-        return view ('EmpRequest');
+        $employerId = auth()->user()->id;
+
+        // Fetch job requests for the logged-in employer
+        $jobrequest = JobRequest::where('joblist_id', $employerId)->get();
+
+        return view('Employer.EmpRequests', compact('jobrequest'));
+    }
+
+    public function RequestController(){
+
     }
 
 

@@ -44,4 +44,5 @@ class JobRequest extends Controller
     public function Jobrequestview(){
         return view ('JobRequest');
     }
+
 }
