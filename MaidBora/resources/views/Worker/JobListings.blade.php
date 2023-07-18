@@ -35,17 +35,19 @@
                
               </div>
               @foreach ($jobPosts as $jobPost)
-              <form>
           <div class="card">
-          
             <div class="card-body">
             <h5 class="card-title">{{ $jobPost->jobTitle }}</h5>
             <p class="card-text">{{ $jobPost->jobDescription }}</p>
             <p class="card-text">Salary: {{ $jobPost->salary }}</p>
-            <button class="btn btn-primary" type = "submit" onclick="requestJob({{ $jobPost->id }})">Request</button>
+            <form action="{{route('joblistings.request', ['joblist' => $jobPost->jobID]) }}" method = "POST">
+              @csrf
+              <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+              <input type="hidden" name="joblist_id" value="{{ $jobPost->jobID }}">
+            <button class="btn btn-primary" type = "submit" >Request</button>
+            </form>
           </div>
           </div>
-        </form>
               @endforeach
               <div class="card-footer text-center pt-0 px-lg-2 px-1">
               <script src="{{URL::to('js_1/core/popper.min.js')}}" type="text/javascript"></script>

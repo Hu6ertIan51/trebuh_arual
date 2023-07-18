@@ -7,6 +7,8 @@ use App\Http\Controllers\dashboard;
 use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\Listings;
+use App\Http\Controllers\JobRequest;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +58,9 @@ Route::post('/sendRequest', [WorkerController::class, 'requestJob']);
 //rating routes 
 Route::get('/WorkerRateForm', [WorkerController::class, 'workerRateEmp'])->name('WorkerRateForm');
 
+//Job Requests
+Route::post('/jobRequest/{joblist}/send-request', [JobRequest::class, 'sendRequest'])->name('joblistings.request');
+Route::get('/JobRequests', [JobRequest::class, 'Jobrequestview']);
 
 Route::middleware(['auth']) -> group (function(){
 Route::get('/dashboard',[dashboard::class, 'dash'])->name('dashboard');

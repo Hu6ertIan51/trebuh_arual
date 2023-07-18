@@ -37,6 +37,6 @@ class Listings extends Controller
         $job->save();
 
         Session::flash('success', 'Job listing created successfully!');
-        return redirect()->route('emprofile');
+        return redirect()->route('dashboard');
     }
 }

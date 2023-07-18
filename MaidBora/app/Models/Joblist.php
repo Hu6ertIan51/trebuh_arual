@@ -15,9 +15,15 @@ class Joblist extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'jobrequest', 'user_id', 'joblist_id');
+    }
+
     public function rate() // previously called ratings
 {
     return $this->hasMany(Rating::class);
 }
+    
 }
 
