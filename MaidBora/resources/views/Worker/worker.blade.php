@@ -35,8 +35,9 @@
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
-        
-        <li class="nav-item mt-3">
+      
+            
+        <li class="nav-item mt-3"> 
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">WORKER PROFILE</h6>
         </li>
         
@@ -57,6 +58,12 @@
             <span class="nav-link-text ms-1">Your Job requests</span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{route('logout')}}" >
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Logout</span> </a></li>
         
     
       </ul>
@@ -107,6 +114,7 @@
               {{$user->firstname}} {{$user->lastname}}  
               
               </h5>
+              
               <p class="mb-0 font-weight-bold text-sm">
                 My Profile
               </p>
@@ -134,7 +142,7 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0">Profile Information</p>
-                <button type = "submit" class="btn btn-primary btn-sm ms-auto">Submit changes</button>
+                
               </div>
             </div>
             <div class="card-body">
@@ -338,6 +346,7 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+  
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
