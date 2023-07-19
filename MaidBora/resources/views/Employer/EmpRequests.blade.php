@@ -59,7 +59,7 @@
         @csrf
         <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">Accept</button>
         </form>
-        <form action="" method="POST">
+        <form action="{{ route('denyRequest', ['jobRequest' => $jobRequest->id]) }}" method="POST" class = "d-flex">
     @csrf
     <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">Deny</button>
     </form>

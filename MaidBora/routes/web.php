@@ -10,6 +10,8 @@ use App\Http\Controllers\Listings;
 use App\Http\Controllers\JobRequest;
 use App\Http\Controllers\AcceptRequest;
 use App\Http\Controllers\OngoingJobs;
+use App\Http\Controllers\DenyController;
+
 
 
 
@@ -67,7 +69,8 @@ Route::post('/jobRequest/{joblist}/send-request', [JobRequest::class, 'sendReque
 Route::get('/JobRequests', [JobRequest::class, 'Jobrequestview']);
 Route::get('/EmployerRequests', [EmployerController::class, 'viewRequests']);
 Route::post('/AcceptRequest/{jobrequest}/accept',[AcceptRequest::class, 'acceptRequest'])->name('acceptrequest');
-
+Route::post('/DenyRequest/{jobRequest}', [DenyController::class, 'denyRequest'])
+     ->name('denyRequest');
 //Ongoing Jobs
 Route::get('/OngoingJobs', [OngoingJobs::class, 'Jobs'])->name('ongoingEmp');
 
