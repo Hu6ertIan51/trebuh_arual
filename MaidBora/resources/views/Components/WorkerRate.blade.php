@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-        Accepted Jobs
+    Rate Employer
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -31,36 +31,27 @@
           <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
-                <h4 class="font-weight-bolder">On-going jobs </h4>
-                <ul>
-                </div>
-              @if ($WongoingJobs->isEmpty())
-        <p>You have no ongoing jobs.</p>
-    @else
-        <ul>
-            @foreach ($WongoingJobs as $jobRequest)
-            <li>
-                <p>Job Title: {{ $jobRequest->joblist->jobTitle }}</p>
-                    <p>Employment Type: {{ $jobRequest->joblist->employmentType }}</p>
-                        <p>Salary: {{ $jobRequest->joblist->salary }}</p>
-                            <form action="{{ route('WorkerRateform')}}" method="" class="d-flex">
-                                @csrf
-                                    <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">RATE EMPLOYER</button>
-                             </form>
-                             <form action="{{ route('WorkerRateform')}}" method="" class="d-flex">
-                                @csrf
-                                    <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">VIEW PROFILE</button>
-                             </form>
-            </li>
-            @endforeach
-        </ul> @endif
-
-
-             
+            <h4 class="font-weight-bolder">RATINGS</h4>
+                <p class="mb-0">Rate the user</p>
+              </div>
+              <div class="card-body">
+                <form action = "{{route('ratemployer')}}" method = "POST">
+                  @csrf
+                  <div class="mb-3">
+                    <input type="hidden" name="ratedUser" value="1">
+                    <input type="number" required name = "rating" class="form-control form-control-lg" placeholder="Rating out of 5" id="ratingInput" name="Rating" min="1" max="5" 
+                    tabindex = "1" required = "required" autofocus= "autofocus">
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" required name = "review" class="form-control form-control-lg" placeholder="Comment" id="reviewInput" name="review" rows="3"
+                    value = "" required = "required">
+                    <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">RATE USER</button>
+                  </div>
+                </form>
+              </div>
               <div class="card-footer text-center pt-0 px-lg-2 px-1">
               <script src="{{URL::to('js_1/core/popper.min.js')}}" type="text/javascript"></script>
   <script src="{{URL::to('js_1/core/bootstrap.min.js')}}" type="text/javascript"></script>
-  
   <script src="{{URL::to('js_1/plugins/perfect-scrollbar.min.js')}}"></script>
   <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
   <script src="../assets/js/plugins/parallax.min.js"></script>

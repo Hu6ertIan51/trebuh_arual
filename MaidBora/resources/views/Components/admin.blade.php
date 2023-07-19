@@ -26,7 +26,7 @@
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-  <link href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f5ffca45f0.js" crossorigin="anonymous"></script>
   <!-- Nucleo Icons -->
   <link href="{{URL::to('css_3/nucleo-icons.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
@@ -48,26 +48,26 @@
         <ul class="nav">
         <li class="active ">
             <a href="./dashboard.html"> 
-            <i class="fa-solid fa-user"></i>
-              <p>Profile</p>
+            <i class="fa-solid fa-users"></i>
+              <p>View Users</p>
             </a>
           </li>
           <li class="active ">
             <a href="./dashboard.html"> 
-              <i class="tim-icons icon-chart-pie-36"></i>
-              <p>Dashboard</p>
+            <i class="fa-solid fa-users"></i>
+              <p>ADD ADMINS </p>
             </a>
           </li>
           <li class = "active">
             <a href="./notifications.html">
-              <i class="tim-icons icon-bell-55"></i>
-              <p>Notifications</p>
+            <i class="fa-solid fa-trash"></i>
+              <p>Delete Users</p>
             </a>
         </li>
         <li class = "active">
             <a href="./notifications.html">
-            <i class="fa-solid fa-gear"></i>
-              <p>Settings</p>
+            <i class="fa-solid fa-magnifying-glass"></i>
+              <p>View Jobs</p>
             </a>
         </li>
         </ul>

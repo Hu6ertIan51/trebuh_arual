@@ -13,6 +13,8 @@ use App\Http\Controllers\OngoingJobs;
 use App\Http\Controllers\DenyController;
 use App\Http\Controllers\ratingsController;
 use App\Http\Controllers\acceptedJobsController;
+use App\Http\Controllers\workerRating;
+
 
 
 
@@ -71,6 +73,8 @@ Route::get('/accepted-jobs', [AcceptedJobsController::class, 'show'])->name('acc
 //rating routes 
 Route::get('/RateForm', [ratingsController::class, 'Rate'])->name('WorkerRateForm');
 Route::post('/RateUser', [ratingsController::class, 'rateUser'])->name('rateuser');
+Route::get('/RateWorker', [workerRating::class, 'RateWorker'])->name('WorkerRateform');
+Route::post('/RateEmployer', [workerRating::class, 'RateEmployer'])->name('ratemployer');
 
 
 //Job Requests
