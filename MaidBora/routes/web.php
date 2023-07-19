@@ -9,6 +9,8 @@ use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\Listings;
 use App\Http\Controllers\JobRequest;
 use App\Http\Controllers\AcceptRequest;
+use App\Http\Controllers\OngoingJobs;
+
 
 
 
@@ -65,6 +67,9 @@ Route::post('/jobRequest/{joblist}/send-request', [JobRequest::class, 'sendReque
 Route::get('/JobRequests', [JobRequest::class, 'Jobrequestview']);
 Route::get('/EmployerRequests', [EmployerController::class, 'viewRequests']);
 Route::post('/AcceptRequest/{jobrequest}/accept',[AcceptRequest::class, 'acceptRequest'])->name('acceptrequest');
+
+//Ongoing Jobs
+Route::get('/OngoingJobs', [OngoingJobs::class, 'Jobs'])->name('ongoingEmp');
 
 Route::middleware(['auth']) -> group (function(){
 Route::get('/dashboard',[dashboard::class, 'dash'])->name('dashboard');
