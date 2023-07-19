@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Rate Employer
+        Ongoing jobs
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -22,6 +22,12 @@
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <style>
+        /* Apply number display for <li> elements */
+        ul {
+            list-style-type: decimal; /* Use decimal for numbers, "disc" for bullets */
+        }
+    </style>
 </head>
 <body class="sign-in-illustration">
   <!-- Navbar -->
@@ -31,28 +37,32 @@
           <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
-<h4 class="font-weight-bolder">RATINGS</h4>
-                <p class="mb-0">Rate the user</p>
+                <h4 class="font-weight-bolder">Your Ongoing Jobs</h4>
               </div>
-              <div class="card-body">
-                <form role="form" action = "{{route('authenticate')}}" method = "POST" class = "needs-validation" novalidate ="">
-                  @csrf
-                  <div class="mb-3">
-                    <input type="text" required name = "Rating" class="form-control form-control-lg" placeholder="Rating out of 5" id="ratingInput" name="Rating" min="1" max="5" 
-                    tabindex = "1" required = "required" autofocus= "autofocus">
-                  </div>
-                  <div class="mb-3">
-                    <input type="text" required name = "Review" class="form-control form-control-lg" placeholder="Comment" id="reviewInput" name="review" rows="3"
-                    value = "" required = "required">
-                    <input type="hidden" name="RaterID" value="{{ auth()->user()->id }}">
-                      <input type="hidden" name="RaterUserId" value="{{ auth()->user()->id  }}">
-                    
-                    <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">RATE USER</button>
-                  </div>
-                </form>
-              </div>
-              <div class="card-footer text-center pt-0 px-lg-2 px-1">
-              <script src="{{URL::to('js_1/core/popper.min.js')}}" type="text/javascript"></script>
+              @if ($ongoingJobs->isEmpty())
+        <p>You have no ongoing jobs.</p>
+    @else
+        <ul>
+            @foreach ($ongoingJobs as $jobRequest)
+            <li>
+                <p>Job Title: {{ $jobRequest->joblist->jobTitle }}</p>
+                    <p>Employment Type: {{ $jobRequest->joblist->employmentType }}</p>
+                        <p>Salary: {{ $jobRequest->joblist->salary }}</p>
+                            <form action="{{ route('WorkerRateForm')}}" method="" class="d-flex">
+                                @csrf
+                                    <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">RATE WORKER</button>
+                             </form>
+                             <form action="{{ route('WorkerRateForm')}}" method="" class="d-flex">
+                                @csrf
+                                    <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">VIEW PROFILE</button>
+                             </form>
+            </li>
+            @endforeach
+        </ul>
+@endif
+</div>
+<div class="card-footer text-center pt-0 px-lg-2 px-1">
+<script src="{{URL::to('js_1/core/popper.min.js')}}" type="text/javascript"></script>
   <script src="{{URL::to('js_1/core/bootstrap.min.js')}}" type="text/javascript"></script>
   <script src="{{URL::to('js_1/plugins/perfect-scrollbar.min.js')}}"></script>
   <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
@@ -64,3 +74,5 @@
 </body>
 
 </html>
+
+

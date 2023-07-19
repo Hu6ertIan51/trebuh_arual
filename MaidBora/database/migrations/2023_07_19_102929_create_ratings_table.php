@@ -12,19 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->increments('rateID');
-            $table->integer('Rating');
-            $table->unsignedBigInteger('RaterId');
-            $table->unsignedBigInteger('RatedUser');
-            $table->string('Review');
-            $table->unsignedBigInteger('jobID');
+            $table->increments('id');
+            $table->unsignedBigInteger('raterId');
+            $table->unsignedBigInteger('ratedUser');
+            $table->unsignedBigInteger('joblist_id');
+            $table->integer('rating');
+            $table->string('review');
             $table->timestamps();
 
-            $table->foreign('jobId')->references('jobID')->on('job_post')->onDelete('cascade');
-            $table->foreign('RatedUser')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('RaterId')->references('id')->on('users')->onDelete('cascade');
-
+            $table->foreign('RatedUser')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('joblist_id')->references('jobID')->on('job_post')->onDelete('cascade');
             
+
         });
     }
 

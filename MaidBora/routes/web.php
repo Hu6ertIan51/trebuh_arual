@@ -9,7 +9,12 @@ use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\Listings;
 use App\Http\Controllers\JobRequest;
 use App\Http\Controllers\AcceptRequest;
-use App\Http\Controllers\AcceptedJobsController;
+use App\Http\Controllers\OngoingJobs;
+use App\Http\Controllers\DenyController;
+use App\Http\Controllers\ratingsController;
+
+
+
 
 
 
@@ -28,6 +33,7 @@ use App\Http\Controllers\AcceptedJobsController;
  Route::get('/', function () {
     return view('Login.login'); 
 });
+
 
 Route::get('/login', [Login::class, 'LoginPage'])->name('login');
 Route::post('/login', [Login::class, 'auth'])->name('authenticate');
@@ -62,19 +68,21 @@ Route::post('/sendRequest', [WorkerController::class, 'requestJob']);
 Route::get('/accepted-jobs', [AcceptedJobsController::class, 'show'])->name('accepted-jobs');
 
 //rating routes 
-Route::get('/WorkerRateForm', [WorkerController::class, 'workerRateEmp'])->name('WorkerRateForm');
+Route::get('/RateForm', [ratingsController::class, 'Rate'])->name('WorkerRateForm');
+Route::post('/RateUser', [ratingsController::class, 'rateUser'])->name('rateuser');
 
 //Job Requests
 Route::post('/jobRequest/{joblist}/send-request', [JobRequest::class, 'sendRequest'])->name('joblistings.request');
 Route::get('/JobRequests', [JobRequest::class, 'Jobrequestview']);
 Route::get('/EmployerRequests', [EmployerController::class, 'viewRequests']);
-Route::post('/AcceptRequest/{jobRequest}/accept',[AcceptRequest::class, 'acceptRequest'])->name('acceptrequest');
+Route::post('/AcceptRequest/{jobrequest}/accept',[AcceptRequest::class, 'acceptRequest'])->name('acceptrequest');
+Route::post('/DenyRequest/{jobRequest}', [DenyController::class, 'denyRequest'])
+     ->name('denyRequest');
+//Ongoing Jobs
+Route::get('/OngoingJobs', [OngoingJobs::class, 'Jobs'])->name('ongoingEmp');
 
-Route::middleware(['auth']) -> group (function(){
 Route::get('/dashboard',[dashboard::class, 'dash'])->name('dashboard');
 Route::get('/logout',[Login::class, 'logout'])->name('logout');
-
-});
 
 /*
 <select>

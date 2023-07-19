@@ -43,7 +43,9 @@ class EmployerController extends Controller
     public function viewRequests(){
         $employerId = auth()->user()->id;
         // Fetch job requests for the logged-in employer
-        $jobrequests = JobRequest::where('joblist_id', $employerId)->get();
+        $jobrequests = JobRequest::where('joblist_id', $employerId)
+                                ->with('joblist')
+                                ->get();
         // $jobrequests = $employerId->joblists->pluck('jobrequests')->flatten();
         // $jobrequests = $employerId->jobrequests;
         
