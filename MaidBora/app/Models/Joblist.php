@@ -22,11 +22,6 @@ class Joblist extends Model
         ->withTimestamps();
     }
 
-    public function jobRequests()
-{
-    return $this->hasMany(JobRequest::class, 'joblist_id', 'jobID');
-}
-
     public function rate() // previously called ratings
 {
     return $this->hasMany(Rating::class);

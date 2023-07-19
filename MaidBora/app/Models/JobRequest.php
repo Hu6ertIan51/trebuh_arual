@@ -14,12 +14,13 @@ class JobRequest extends Model
 
     public function joblist()
     {
-        return $this->belongsTo(Joblist::class, 'joblist_id', 'id');
+        return $this->belongsTo(Joblist::class, 'joblist_id');
     }
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
     
 }

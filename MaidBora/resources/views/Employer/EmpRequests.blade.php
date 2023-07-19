@@ -55,7 +55,7 @@
             {{ $jobRequest->joblist->salary }}
             </p>
             </li>
-            <form action="{{ route('acceptrequest', ['jobrequests' => $jobRequest->id]) }}" method="POST" class="d-flex">
+            <form action="{{ route('acceptrequest', ['jobrequest' => $jobRequest->id]) }}" method="POST" class="d-flex">
         @csrf
         <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">Accept</button>
         </form>

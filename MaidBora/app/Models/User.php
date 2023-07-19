@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Employer;
 use App\Models\Joblist;
+use App\Models\JobRequest;
 
 class User extends Authenticatable
 {
@@ -68,14 +69,15 @@ class User extends Authenticatable
     }
 
     public function joblists(){
-        return $this->belongsToMany(Joblist::class, 'jobrequest', 'id', 'joblist_id');
+        return $this->belongsToMany(Joblist::class, 'jobrequest', 'user_id', 'joblist_id')
+        ->withPivot('status')
+        ->withTimestamps();
     }
 
     public function jobRequests()
     {
-        return $this->belongsToMany(Joblist::class, 'jobrequest', 'user_id', 'joblist_id')
-                    ->withPivot('status')
-                    ->withTimestamps();
+        return $this->hasMany(jobRequests::class, 'user_id');
+                    
     }
 }
 /*
