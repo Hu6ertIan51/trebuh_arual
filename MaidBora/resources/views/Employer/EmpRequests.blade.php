@@ -54,7 +54,10 @@
             <p>Salary:
             {{ $jobRequest->joblist->salary }}
             </p>
-            </li>
+            <form action="" method="" class="d-flex">
+      @csrf
+        <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">VIEW PROFILE</button>
+    </form>
             <form action="{{ route('acceptrequest', ['jobrequest' => $jobRequest->id]) }}" method="POST" class="d-flex">
         @csrf
         <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">Accept</button>
@@ -62,7 +65,8 @@
         <form action="{{ route('denyRequest', ['jobRequest' => $jobRequest->id]) }}" method="POST" class = "d-flex">
     @csrf
     <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">Deny</button>
-    </form>
+      </form>
+      </li>
         @endforeach
     </ul>
 @endif

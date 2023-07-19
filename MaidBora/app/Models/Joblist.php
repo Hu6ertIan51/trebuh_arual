@@ -27,10 +27,9 @@ class Joblist extends Model
         return $this->hasMany(JobRequest::class, 'joblist_id');
     }
 
-    public function rate() // previously called ratings
-{
-    return $this->hasMany(Rating::class);
-}
+    public function rate(){
+        return $this->hasMany(Rating::class);
+    }
     
 }
 

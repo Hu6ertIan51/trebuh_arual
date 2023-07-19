@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Employer;
 use App\Models\Joblist;
 use App\Models\JobRequest;
+use App\Models\Rating;
 
 class User extends Authenticatable
 {
@@ -79,6 +80,17 @@ class User extends Authenticatable
         return $this->hasMany(jobRequests::class, 'user_id');
                     
     }
+
+    public function ratingsGiven()
+    {
+        return $this->hasMany(Rating::class, 'raterID');
+    }
+
+    public function ratingsReceived()
+    {
+        return $this->hasMany(Rating::class, 'ratedUser');
+    }
+
 }
 /*
 'email',

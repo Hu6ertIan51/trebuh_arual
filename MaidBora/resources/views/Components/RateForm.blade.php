@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Rate Employer
+    Rate User
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -31,22 +31,20 @@
           <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
-<h4 class="font-weight-bolder">RATINGS</h4>
+            <h4 class="font-weight-bolder">RATINGS</h4>
                 <p class="mb-0">Rate the user</p>
               </div>
               <div class="card-body">
-                <form role="form" action = "{{route('authenticate')}}" method = "POST" class = "needs-validation" novalidate ="">
+                <form action = "{{route('rateuser')}}" method = "POST">
                   @csrf
                   <div class="mb-3">
-                    <input type="text" required name = "Rating" class="form-control form-control-lg" placeholder="Rating out of 5" id="ratingInput" name="Rating" min="1" max="5" 
+                    <input type="hidden" name="ratedUser" value="1">
+                    <input type="number" required name = "rating" class="form-control form-control-lg" placeholder="Rating out of 5" id="ratingInput" name="Rating" min="1" max="5" 
                     tabindex = "1" required = "required" autofocus= "autofocus">
                   </div>
                   <div class="mb-3">
-                    <input type="text" required name = "Review" class="form-control form-control-lg" placeholder="Comment" id="reviewInput" name="review" rows="3"
+                    <input type="text" required name = "review" class="form-control form-control-lg" placeholder="Comment" id="reviewInput" name="review" rows="3"
                     value = "" required = "required">
-                    <input type="hidden" name="RaterID" value="{{ auth()->user()->id }}">
-                      <input type="hidden" name="RaterUserId" value="{{ auth()->user()->id  }}">
-                    
                     <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">RATE USER</button>
                   </div>
                 </form>
