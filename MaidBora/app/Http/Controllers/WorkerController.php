@@ -35,7 +35,7 @@ class WorkerController extends Controller
     {
         return view('ratingForm', compact('jobId', 'ratedUserId'));
     }
-    
+
     //function to store users ratings, update average rating and redirect to homepage
     public function store(Request $request)
 {
@@ -84,7 +84,17 @@ class WorkerController extends Controller
         return view('Worker.JobListings', compact('jobPosts'));
     }
    
-   
+    //function to show ongoing jobs in the worker profile
+    public function showOngoingJobs()
+    {
+        // Get the accepted job requests
+        $jobs = Job::where('userId', auth()->user()->id)
+            ->where('status', 'accepted')
+            ->get();
+
+        return view('ongoing_jobs', ['jobs' => $jobs]);
+    }
+
     //function to fetch data from db and show on profile page
     function showProfile(){
         $user = auth()->user(); 

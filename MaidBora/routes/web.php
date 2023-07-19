@@ -9,6 +9,7 @@ use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\Listings;
 use App\Http\Controllers\JobRequest;
 use App\Http\Controllers\AcceptRequest;
+use App\Http\Controllers\AcceptedJobsController;
 
 
 
@@ -41,7 +42,6 @@ Route::post('/saveEmployer', [EmployerController::class,'saveEmployer'])->name('
 Route::get('/Empdetails', [dashboard::class, 'showDetails'])->name('empdetails');
 Route::get('/Listing', [Listings::class, 'PostListing'])->name('listings');
 Route::post('/JobPosted', [Listings::class, 'createListing'])->name('jobcreated')->middleware('auth');
-
 Route::post('/saveEmployer', [EmployerController::class,'saveEmployer'])->name('savemployer');
 Route::get('/Empdetails', [dashboard::class, 'showDetails'])->name('empdetails');
 
@@ -51,11 +51,15 @@ Route::post('/DetailsWorker', [WorkerController::class, 'adddetails'])->name('Wo
 Route::get('Worker/worker_settings',[WorkerController::class,'worker_settings'])->name('WorkerSettings');
 Route::get('Worker/job_listings',[WorkerController::class,'job_listings'])->name('JobListings');
 Route::get('Worker/JobReqs',[WorkerController::class,'job_requests'])->name('workerRequests');
-// Route::get('Worker/ApplicationForm', [dashboard::class, 'empProfile'])->name('emprofile');
+
+//Route::get('Worker/ApplicationForm', [dashboard::class, 'empProfile'])->name('emprofile');
 Route::get('/UserReg', [UserRegistration::class,'Register']);
 Route::post('/sendRequest', [WorkerController::class, 'requestJob']);
 
 //Route::get('/showProfile', [dashboard::class,'workerFunc']);
+
+//fetching status of request in order to display in the ongoing jobs
+Route::get('/accepted-jobs', [AcceptedJobsController::class, 'show'])->name('accepted-jobs');
 
 //rating routes 
 Route::get('/WorkerRateForm', [WorkerController::class, 'workerRateEmp'])->name('WorkerRateForm');
@@ -64,7 +68,7 @@ Route::get('/WorkerRateForm', [WorkerController::class, 'workerRateEmp'])->name(
 Route::post('/jobRequest/{joblist}/send-request', [JobRequest::class, 'sendRequest'])->name('joblistings.request');
 Route::get('/JobRequests', [JobRequest::class, 'Jobrequestview']);
 Route::get('/EmployerRequests', [EmployerController::class, 'viewRequests']);
-Route::post('/AcceptRequest/{jobrequest}/accept',[AcceptRequest::class, 'acceptRequest'])->name('acceptrequest');
+Route::post('/AcceptRequest/{jobRequest}/accept',[AcceptRequest::class, 'acceptRequest'])->name('acceptrequest');
 
 Route::middleware(['auth']) -> group (function(){
 Route::get('/dashboard',[dashboard::class, 'dash'])->name('dashboard');
