@@ -8,19 +8,16 @@ use App\Models\Joblist;
 
 class acceptedJobsController extends Controller
 {
-    //
-    public function show()
-    {
-        $jobrequest = Jobrequest::where('user_id', auth()->id())->first();
-        $status = $jobrequest ? $jobrequest->status : 0;
-        $job = null;
-        $otherJobs = [];
+   
+public function WorkerJobs() {
+    // Get the authenticated user (employer)
+    $worker = auth()->user();
 
-        if ($status == 1) {
-            $job = Joblist::findOrFail($jobrequest->joblist_id);
-            $otherJobs = Joblist::where('id', '!=', $job->id)->limit(5)->get(); // Example: Fetching 5 other available jobs
-        }
-
-        return view('accepted-jobs', compact('status', 'job', 'otherJobs'));
+    // Get the job requests with status = true (accepted requests) for the authenticated employer
+    $WongoingJobs = JobRequest::where('user_id', $worker->id)
+                            ->where('status', true)
+                            ->with('joblist') 
+                            ->get();
+        return view ('Worker.workerRequests', compact('WongoingJobs'));
     }
 }

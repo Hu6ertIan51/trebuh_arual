@@ -26,10 +26,10 @@ class WorkerController extends Controller
     }
 
     //function to return the $jobId and &RatedUserId to the rating form as hidden required fields
-    public function showRatingForm($jobId, $ratedUserId)
+   /**  public function showRatingForm($jobId, $ratedUserId)
     {
         return view('ratingForm', compact('jobId', 'ratedUserId'));
-    }
+    } **/
 
     //function to store users ratings, update average rating and redirect to homepage
     
@@ -43,9 +43,7 @@ class WorkerController extends Controller
     }
 
     //function to get to the workers requests and their status 
-    function job_requests(){
-        return view('Worker.workerRequests');
-    }
+    
 
     public function job_listings()
     {

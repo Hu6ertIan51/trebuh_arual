@@ -12,6 +12,7 @@ use App\Http\Controllers\AcceptRequest;
 use App\Http\Controllers\OngoingJobs;
 use App\Http\Controllers\DenyController;
 use App\Http\Controllers\ratingsController;
+use App\Http\Controllers\acceptedJobsController;
 
 
 
@@ -56,7 +57,7 @@ Route::get('Worker/WorkProfile',[dashboard::class,'workerFunc'])->name('worker')
 Route::post('/DetailsWorker', [WorkerController::class, 'adddetails'])->name('WorkDetails');
 Route::get('Worker/worker_settings',[WorkerController::class,'worker_settings'])->name('WorkerSettings');
 Route::get('Worker/job_listings',[WorkerController::class,'job_listings'])->name('JobListings');
-Route::get('Worker/JobReqs',[WorkerController::class,'job_requests'])->name('workerRequests');
+
 
 //Route::get('Worker/ApplicationForm', [dashboard::class, 'empProfile'])->name('emprofile');
 Route::get('/UserReg', [UserRegistration::class,'Register']);
@@ -71,6 +72,7 @@ Route::get('/accepted-jobs', [AcceptedJobsController::class, 'show'])->name('acc
 Route::get('/RateForm', [ratingsController::class, 'Rate'])->name('WorkerRateForm');
 Route::post('/RateUser', [ratingsController::class, 'rateUser'])->name('rateuser');
 
+
 //Job Requests
 Route::post('/jobRequest/{joblist}/send-request', [JobRequest::class, 'sendRequest'])->name('joblistings.request');
 Route::get('/JobRequests', [JobRequest::class, 'Jobrequestview']);
@@ -80,6 +82,8 @@ Route::post('/DenyRequest/{jobRequest}', [DenyController::class, 'denyRequest'])
      ->name('denyRequest');
 //Ongoing Jobs
 Route::get('/OngoingJobs', [OngoingJobs::class, 'Jobs'])->name('ongoingEmp');
+Route::get('/WorkerOngoingJobs', [acceptedJobsController::class, 'WorkerJobs'])->name('workerRequests');
+
 
 Route::get('/dashboard',[dashboard::class, 'dash'])->name('dashboard');
 Route::get('/logout',[Login::class, 'logout'])->name('logout');

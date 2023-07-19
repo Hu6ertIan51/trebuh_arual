@@ -32,36 +32,29 @@
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
                 <h4 class="font-weight-bolder">On-going jobs </h4>
-                @if ($status == 0)
-    <p>No jobs available</p>
-@else
-    <div class="card">
-        <div class="card-header">
-            <h5 class="card-title">{{ $job->jobTitle }}</h5>
-        </div>
-        <div class="card-body">
-            <p>Employer: <a href="{{ route('employer.profile', $job->user->id) }}">{{ $job->user->name }}</a></p>
-        </div>
-        <div class="card-footer">
-            <a href="{{ route('rate.form', $job->id) }}" class="btn btn-primary">Rate</a>
-        </div>
-    </div>
+                <ul>
+                </div>
+              @if ($WongoingJobs->isEmpty())
+        <p>You have no ongoing jobs.</p>
+    @else
+        <ul>
+            @foreach ($WongoingJobs as $jobRequest)
+            <li>
+                <p>Job Title: {{ $jobRequest->joblist->jobTitle }}</p>
+                    <p>Employment Type: {{ $jobRequest->joblist->employmentType }}</p>
+                        <p>Salary: {{ $jobRequest->joblist->salary }}</p>
+                            <form action="{{ route('WorkerRateForm')}}" method="" class="d-flex">
+                                @csrf
+                                    <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">RATE EMPLOYER</button>
+                             </form>
+                             <form action="{{ route('WorkerRateForm')}}" method="" class="d-flex">
+                                @csrf
+                                    <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">VIEW PROFILE</button>
+                             </form>
+            </li>
+            @endforeach
+        </ul> @endif
 
-    <h3>Other Available Jobs</h3>
-    @foreach ($otherJobs as $otherJob)
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">{{ $otherJob->jobTitle }}</h5>
-            </div>
-            <div class="card-body">
-                <p>Employer: <a href="{{ route('employer.profile', $otherJob->user->id) }}">{{ $otherJob->user->name }}</a></p>
-            </div>
-            <div class="card-footer">
-                <a href="{{ route('rate.form', $otherJob->id) }}" class="btn btn-primary">Rate</a>
-            </div>
-        </div>
-    @endforeach
-@endif
 
              
               <div class="card-footer text-center pt-0 px-lg-2 px-1">
