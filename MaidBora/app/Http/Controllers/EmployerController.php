@@ -42,11 +42,12 @@ class EmployerController extends Controller
 
     public function viewRequests(){
         $employerId = auth()->user()->id;
-
         // Fetch job requests for the logged-in employer
-        $jobrequest = JobRequest::where('joblist_id', $employerId)->get();
-
-        return view('Employer.EmpRequests', compact('jobrequest'));
+        $jobrequests = JobRequest::where('joblist_id', $employerId)->get();
+        // $jobrequests = $employerId->joblists->pluck('jobrequests')->flatten();
+        // $jobrequests = $employerId->jobrequests;
+        
+        return view('Employer.EmpRequests', compact('jobrequests'));
     }
 
     public function RequestController(){

@@ -68,7 +68,14 @@ class User extends Authenticatable
     }
 
     public function joblists(){
-        return $this->belongsToMany(Joblist::class, 'jobrequest', 'id', 'jobID');
+        return $this->belongsToMany(Joblist::class, 'jobrequest', 'id', 'joblist_id');
+    }
+
+    public function jobRequests()
+    {
+        return $this->belongsToMany(Joblist::class, 'jobrequest', 'user_id', 'joblist_id')
+                    ->withPivot('status')
+                    ->withTimestamps();
     }
 }
 /*

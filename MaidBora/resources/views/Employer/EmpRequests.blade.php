@@ -39,11 +39,11 @@
               <div class="card-header pb-0 text-left">
                 <h4 class="font-weight-bolder">Your Job Requests</h4>
               </div>
-              @if($jobrequest->isEmpty())
-                <p>You have no Job requests</p>
+              @if($jobrequests->isEmpty())
+                <p>   You have no Job requests</p>
                 @else
                 <ul>
-             @foreach ($jobrequest as $jobRequest)
+             @foreach ($jobrequests as $jobRequest)
             <li>
             <p>Job Title: 
                 {{ $jobRequest->joblist->jobTitle }}
@@ -54,9 +54,8 @@
             <p>Salary:
             {{ $jobRequest->joblist->salary }}
             </p>
-                <!-- Display other relevant job details here -->
             </li>
-            <form action="{{ route('acceptrequest', ['jobRequest' => $jobRequest->id]) }}" method="POST" class="d-flex">
+            <form action="{{ route('acceptrequest', ['jobrequests' => $jobRequest->id]) }}" method="POST" class="d-flex">
         @csrf
         <button type="submit" class="btn btn-sm bg-gradient-primary btn-lg me-2 w-50">Accept</button>
         </form>

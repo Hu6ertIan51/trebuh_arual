@@ -9,7 +9,7 @@ class Joblist extends Model
 {
     protected $table = "job_post";
     protected $primaryKey = "jobID";
-    protected $fillable = ['jobTitle','jobDescription','jobCategory','salary', 'employmentType'];
+    protected $fillable = ['jobTitle','jobDescription','jobCategory','salary', 'employmentType', 'status'];
 
     public function user(){
         return $this->belongsTo(User::class);
@@ -17,8 +17,15 @@ class Joblist extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'jobrequest', 'user_id', 'joblist_id');
+        return $this->belongsToMany(User::class, 'jobrequest', 'user_id', 'joblist_id')
+        ->withPivot('status')
+        ->withTimestamps();
     }
+
+    public function jobRequests()
+{
+    return $this->hasMany(JobRequest::class, 'joblist_id', 'jobID');
+}
 
     public function rate() // previously called ratings
 {
