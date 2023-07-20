@@ -59,13 +59,14 @@ Route::get('Worker/WorkProfile',[dashboard::class,'workerFunc'])->name('worker')
 Route::post('/DetailsWorker', [WorkerController::class, 'adddetails'])->name('WorkDetails');
 Route::get('Worker/worker_settings',[WorkerController::class,'worker_settings'])->name('WorkerSettings');
 Route::get('Worker/job_listings',[WorkerController::class,'job_listings'])->name('JobListings');
+Route::get('/viewWorkerProfile', [WorkerController::class, 'showWorkerProfile'])->name('WorkerProfile');
 
 
 //Route::get('Worker/ApplicationForm', [dashboard::class, 'empProfile'])->name('emprofile');
 Route::get('/UserReg', [UserRegistration::class,'Register']);
 Route::post('/sendRequest', [WorkerController::class, 'requestJob']);
 
-//Route::get('/showProfile', [dashboard::class,'workerFunc']);
+
 
 //fetching status of request in order to display in the ongoing jobs
 Route::get('/accepted-jobs', [AcceptedJobsController::class, 'show'])->name('accepted-jobs');

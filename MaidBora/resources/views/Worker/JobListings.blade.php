@@ -44,7 +44,10 @@
               @csrf
               <input type="hidden" name="user_id" value="{{ Auth::id() }}">
               <input type="hidden" name="joblist_id" value="{{ $jobPost->jobID }}">
-            <button class="btn btn-primary" type = "submit" >Request</button>
+            <button class="btn btn-primary" type = "submit" > Request</button>
+            <!--<a href="{{ route('worker.profile', $worker->id) }}" class="btn btn-primary">View Profile</a>-->
+
+          
             </form>
           </div>
           </div>

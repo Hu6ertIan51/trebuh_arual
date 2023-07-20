@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\worker;
 use App\Models\Joblist;
 use Illuminate\Http\Request as HttpRequest;
+use App\Models\User;
+
 
 
 
@@ -24,13 +26,16 @@ class WorkerController extends Controller
     public function dashboard(){ //1st page
         return view ('Worker.WorkerDashboard');
     }
-
-    //function to return the $jobId and &RatedUserId to the rating form as hidden required fields
-   /**  public function showRatingForm($jobId, $ratedUserId)
+    
+    //function for view profile 
+    public function showWorkerProfile($id)
     {
-        return view('ratingForm', compact('jobId', 'ratedUserId'));
-    } **/
+        $worker = User::findOrFail($id);
 
+        return view('Worker.WorkerProfile', ['worker' => $worker]);
+    }
+
+   
     //function to store users ratings, update average rating and redirect to homepage
     
     public function SignUp(){
@@ -98,9 +103,6 @@ class WorkerController extends Controller
         return redirect()->route('Finish');
     
 
-    /*public function add(){
-        $data=new worker();
-        $data::all();
-        return view();*/
+   
     }
 }

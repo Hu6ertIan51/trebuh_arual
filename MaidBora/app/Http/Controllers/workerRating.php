@@ -60,6 +60,6 @@ class workerRating extends Controller
         $rating->review = $request->input('review');
         $rating->save();
 
-    return response()->json(['message' => 'Rating done successfully sent successfully']);
+    return response()->json(['message' => 'Rating sent successfully']);
 }
 }
