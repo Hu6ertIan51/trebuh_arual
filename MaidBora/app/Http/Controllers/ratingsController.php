@@ -59,7 +59,7 @@ return response()->json(['message' => 'Request sent successfully']);
 
 //functions to be able to view ratings 
 
-    public function showWorkerRatings($id)
+   /** public function showWorkerRatings($id)
     {
         $ratings = Rating::where('RatedUser', $workerId)->get();
 
@@ -71,7 +71,7 @@ return response()->json(['message' => 'Request sent successfully']);
         $ratings = Rating::where('RaterId', $employerId)->get();
 
         return view('employer_ratings', ['ratings' => $ratings]);
-    }
+    } **/
 }
 
     
