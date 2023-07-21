@@ -77,6 +77,8 @@ Route::post('/RateUser', [ratingsController::class, 'rateUser'])->name('rateuser
 Route::get('/RateWorker', [workerRating::class, 'RateWorker'])->name('WorkerRateform');
 Route::post('/RateEmployer', [workerRating::class, 'RateEmployer'])->name('ratemployer');
 
+Route::get('/showRatings', [RatingsController::class, 'showWorkerRatings'])->name('Worker.WorkerDashboard');
+
 
 //Job Requests
 Route::post('/jobRequest/{joblist}/send-request', [JobRequest::class, 'sendRequest'])->name('joblistings.request');

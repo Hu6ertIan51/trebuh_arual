@@ -57,5 +57,21 @@ $rating->save();
 return response()->json(['message' => 'Request sent successfully']);
 }
 
-    
+//functions to be able to view ratings 
+
+    public function showWorkerRatings($id)
+    {
+        $ratings = Rating::where('RatedUser', $workerId)->get();
+
+        return view('worker_ratings', ['ratings' => $ratings]);
+    }
+
+    public function showEmployerRatings($id)
+    {
+        $ratings = Rating::where('RaterId', $employerId)->get();
+
+        return view('employer_ratings', ['ratings' => $ratings]);
+    }
 }
+
+    
