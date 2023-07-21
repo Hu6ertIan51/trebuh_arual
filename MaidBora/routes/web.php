@@ -14,12 +14,9 @@ use App\Http\Controllers\DenyController;
 use App\Http\Controllers\ratingsController;
 use App\Http\Controllers\acceptedJobsController;
 use App\Http\Controllers\workerRating;
-
-
-
-
-
-
+use App\Http\Controllers\Admin;
+use App\Http\Controllers\ViewAdminController;
+use App\Http\Controllers\AdminDel;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,7 +56,9 @@ Route::get('Worker/WorkProfile',[dashboard::class,'workerFunc'])->name('worker')
 Route::post('/DetailsWorker', [WorkerController::class, 'adddetails'])->name('WorkDetails');
 Route::get('Worker/worker_settings',[WorkerController::class,'worker_settings'])->name('WorkerSettings');
 Route::get('Worker/job_listings',[WorkerController::class,'job_listings'])->name('JobListings');
-Route::get('/viewWorkerProfile', [WorkerController::class, 'showWorkerProfile'])->name('WorkerProfile');
+Route::get('/viewWorkerProfile', [dashboard::class, 'workerF'])->name('WorkerProfile');
+
+
 
 
 //Route::get('Worker/ApplicationForm', [dashboard::class, 'empProfile'])->name('emprofile');
@@ -89,8 +88,18 @@ Route::post('/DenyRequest/{jobRequest}', [DenyController::class, 'denyRequest'])
 Route::get('/OngoingJobs', [OngoingJobs::class, 'Jobs'])->name('ongoingEmp');
 Route::get('/WorkerOngoingJobs', [acceptedJobsController::class, 'WorkerJobs'])->name('workerRequests');
 
+//Admin
+Route::get('/addUser', [Admin::class, 'createUserButton'])->name('addUserAdmin');
+Route::post('/postUser' , [Admin::class, 'AdminCreate'])->name('createUserAdmin');
+Route::get('/viewUsers', [ViewAdminController::class, 'viewUsers'])->name('viewUsers');
+Route::get('/ViewJobsMain', [ViewAdminController::class, 'viewMain'])->name('JobsMain');
+Route::get('/viewListings', [ViewAdminController::class, 'viewListings'])->name('viewJobListings');
+Route::get('/viewJobRequests', [ViewAdminController::class, 'viewJobRequests'])->name('viewJobRequests');
+Route::get('/viewOngoingJobs', [ViewAdminController::class, 'viewOngoing'])->name('viewOngoingJobs');
+Route::delete('/deleteUser/{id}', [AdminDel::class, 'deleteUser'])->name('deleteUser');
 
-Route::get('/dashboard',[dashboard::class, 'dash'])->name('dashboard');
+
+Route::get('/dashboard',[dashboard::class, 'admin'])->name('dashboard');
 Route::get('/logout',[Login::class, 'logout'])->name('logout');
 
 /*

@@ -28,11 +28,11 @@ class WorkerController extends Controller
     }
     
     //function for view profile 
-    public function showWorkerProfile($id)
+    public function showWorkerProfile(User $id)
     {
         $worker = User::findOrFail($id);
 
-        return view('Worker.WorkerProfile', ['worker' => $worker]);
+        return view('Worker.WorkerProfile',['worker' => $worker]);
     }
 
    

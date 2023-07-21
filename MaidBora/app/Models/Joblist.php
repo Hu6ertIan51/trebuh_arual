@@ -12,7 +12,7 @@ class Joblist extends Model
     protected $fillable = ['jobTitle','jobDescription','jobCategory','salary', 'employmentType', 'status'];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function users()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\JobRequest;
 
 class DenyController extends Controller
@@ -13,7 +14,7 @@ class DenyController extends Controller
     $jobRequest->update(['status' => false]);
 
     // Optionally, you can add additional logic here, such as sending notifications to the worker.
+    return redirect(route('empwork'));
 
-    return response()->json(['message' => 'Request denied']);
 }
 }

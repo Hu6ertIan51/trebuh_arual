@@ -33,9 +33,23 @@
   <link href="{{URL::to('css_2/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{URL::to('css_2/argon-dashboard.css?v=2.0.4')}}" rel="stylesheet" />
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+  </style>
 </head>
 
-<body class="g-sidenav-show bg-gray-100">
+<body class="fade-in">
   <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('img/logo.png'); background-position-y: 50%;">
     <span class="mask bg-primary opacity-6"></span>
   </div>
@@ -62,7 +76,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../pages/profile.html">
+          <a class="nav-link" href="{{route('emprofile')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
             </div>
@@ -71,16 +85,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-            </div>
-            <i class="fa-solid fa-users"></i>
-            <span class="nav-link-text ms-1">Available Workers</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link " href="{{URL::to('/EmployerRequests')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
             </div>
@@ -89,12 +94,12 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link" href="{{URL::to('/OngoingJobs')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
             </div>
-            <i class="fa-solid fa-gear"></i>
-            <span class="nav-link-text ms-1">Settings</span>
+            <i class="fa-solid fa-users"></i>
+            <span class="nav-link-text ms-1">Ongoing Jobs</span>
           </a>
         </li>
       </ul>
@@ -230,7 +235,6 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0">Profile Information</p>
-                <button type = "submit" class="btn btn-primary btn-sm ms-auto">UPDATE INFORMATION</button>
               </div>
             </div>
             <div class="card-body">

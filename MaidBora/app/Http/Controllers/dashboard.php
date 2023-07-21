@@ -9,7 +9,6 @@ use App\Models\User;
 class dashboard extends Controller
 {
     public function dash(){
-        
         return view ('Components.admin');
 
     }
@@ -34,5 +33,17 @@ class dashboard extends Controller
         $userID = Auth::user() -> id ;
         $user = User::find($userID);
         return view('Worker.worker', compact('user'));
+    }
+
+    public function admin(){
+        $adminName = Auth::user()->id;
+        $user = User::find($adminName);
+        return view('Components.admin', compact('user'));
+    }
+
+    public function workerF(){
+        $userID = Auth::user() -> id ;
+        $user = User::find($userID);
+        return view('Worker.WorkerProfile', compact('user'));
     }
 }

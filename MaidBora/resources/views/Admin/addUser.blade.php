@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    MaidBora - Login page
+    MaidBora - Add User Page 
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -35,21 +35,21 @@
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
   <style>
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
-    .fade-in {
-      animation: fadeIn 1s ease-in;
-    }
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
   </style>
 </head>
-<body class="fade-in">
+<body class = "fade-in">
   <!-- Navbar -->
     <div class="page-header min-vh-100">
       <div class="container">
@@ -57,42 +57,87 @@
           <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
-                <h4 class="font-weight-bolder">Employer details</h4>
-                <p class="mb-0">Fill in your details</p>
+                <h4 class="font-weight-bolder">Add User Portal</h4>
+                <p class="mb-0">Please enter the user's details: </p>
               </div>
               <div class="card-body">
-                <form role="form" action = "{{route('EmpSave')}}" method = "POST" >
+                <form id="signup" method = "POST" action = "{{route('createUserAdmin')}}" >
                   @csrf
                   <div class="mb-3">
-                    <input type="text" required name = "housetype" class="form-control form-control-lg" placeholder="HouseType" aria-label="House-Type" >
+                    <input type="text" required name = "firstname" class="form-control form-control-lg" placeholder="First Name" 
+                    value = "{{old('firstname')}}"
+                    >
                   </div>
                   <div class="mb-3">
-                    <input type="text" required name = "bathroomNo"class="form-control form-control-lg" placeholder="No. of Bathrooms" aria-label="No.of bathrooms">
+                    <input type="text" required name = "lastname"class="form-control form-control-lg" placeholder="Last Name" 
+                    value = "{{old('lastname')}}"
+                    >
                   </div>
                   <div class="mb-3">
-                    <input type="text" required name = "bedroomNo" class="form-control form-control-lg" placeholder="No. of bedrooms" aria-label="No.of bedrooms" >
+                    <input type="text" required name = "username" class="form-control form-control-lg" placeholder="User Name" 
+                    value = "{{old('username')}}"
+                    >
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" required name = "gender" class="form-control form-control-lg" placeholder="Gender" 
+                    value = "{{old('gender')}}"
+                    >
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" required name = "phone" class="form-control form-control-lg" placeholder="Phone Number" 
+                    value = "{{old('phone')}}"
+                    >
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" required name = "email" class="form-control form-control-lg" placeholder="Email Address" 
+                    value = "{{old('email')}}"
+                    >
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" required name = "county" class="form-control form-control-lg" placeholder="County" 
+                    value = "{{old('county')}}"
+                    >
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" required name = "subcounty" class="form-control form-control-lg" placeholder="Sub County" 
+                    value = "{{old('subcounty')}}"
+                    >
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" required name = "town" class="form-control form-control-lg" placeholder="Town" 
+                    value = "{{old('town')}}"
+                    >
+                  </div>
+                  <div class="mb-3">
+                    <input type="password" required name = "password" class="form-control form-control-lg" placeholder="Password" 
+                    value = "{{old('password')}}"
+                    >
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" required name = "bio" class="form-control form-control-lg" placeholder="Write about user" 
+                    value = "{{old('bio')}}">
+                  </div>
+                  <div class = "mb-3">
+                    <select required name = "role" form = "signup" placeholder = "Select role">
+                      <option> Please select role</option>
+                      <option value = "1"> Admin </option>
+                      <option value = "2" > Employer </option>
+                      <option value = "3" > Worker </option>
+                    </select>
                   </div>
                   <div class="text-center">
-                    <button type="submit"  class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">NEXT</button>
+                    <button type = "submit" class="btn btn-block btn primary bg-gradient-primary btn-lg w-100 mt-4 mb-0" >Submit</button>
                   </div>
                 </form>
               </div>
-              <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                <p class="mb-4 text-sm mx-auto">
-                  Have an account?
-                  <a href="{{URL::to('User/SignIn')}}" class="text-primary text-gradient font-weight-bold">Sign in</a>
-                </p>
-              </div>
-            </div>
           </div>
           <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
             <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center">
-              <img src="{{URL::to('img_1/shapes/pattern-lines.svg')}}" alt="pattern-lines" class="position-absolute opacity-4 start-0">
               <div class="position-relative">
                 <img class="max-width-500 w-100 position-relative z-index-2" src="{{URL::to('img/logo.png')}}">
               </div>
-              <h4 class="mt-5 text-white font-weight-bolder">Need a cleaner to clean your house</h4>
-              <p class="text-white">We'll find the right cleaner for your house.</p>
+              <h4 class="mt-5 text-white font-weight-bolder">Need a cleaner to clean your house? </h4>
+              <p class="text-white">We'll find the right cleaner for your house! </p>
             </div>
           </div>
         </div>
@@ -109,7 +154,6 @@
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="{{URL::to('js_1/soft-design-system.min.js?v=1.0.9')}}" type="text/javascript"></script>
-
 </body>
 
 </html>

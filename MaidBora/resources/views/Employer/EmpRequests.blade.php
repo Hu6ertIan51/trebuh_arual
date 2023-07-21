@@ -27,9 +27,21 @@
         ul {
             list-style-type: decimal; /* Use decimal for numbers, "disc" for bullets */
         }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
     </style>
 </head>
-<body class="sign-in-illustration">
+<body class="fade-in">
   <!-- Navbar -->
     <div class="page-header min-vh-100">
       <div class="container">
