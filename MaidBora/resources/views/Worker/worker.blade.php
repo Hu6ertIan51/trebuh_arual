@@ -19,9 +19,22 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{URL::to('css_4/argon-dashboard.css?v=2.0.4')}}" rel="stylesheet" />
-</head>
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
-<body class="g-sidenav-show bg-gray-100">
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+  </style>
+</head>
+<body class="fade-in">
   <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('img/logo.png'); background-position-y: 50%;">
     <span class="mask bg-primary opacity-6"></span>
   </div>

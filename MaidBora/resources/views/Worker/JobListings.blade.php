@@ -22,8 +22,22 @@
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+  </style>
 </head>
-<body class="sign-in-illustration">
+<body class="fade-in">
   <!-- Navbar -->
     <div class="page-header min-vh-100">
       <div class="container">
@@ -45,7 +59,6 @@
               <input type="hidden" name="user_id" value="{{ Auth::id() }}">
               <input type="hidden" name="joblist_id" value="{{ $jobPost->jobID }}">
             <button class="btn btn-primary" type = "submit" > Request</button>
-            <!--<a href="{{ route('worker.profile', $worker->id) }}" class="btn btn-primary">View Profile</a>-->
 
           
             </form>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use App\Models\Rating;
 use App\Models\User;
 use App\Models\Joblist;
@@ -29,7 +30,8 @@ class workerRating extends Controller
 
         // Checks if the rater is the same as the ratedUser (user can't rate themselves)
         if ($raterID === $request->input('ratedUser')) {
-            return response()->json(['error' => 'You cannot rate yourself.']);
+            Session::flash('success', 'Cannot rate yourself');
+            return redirect(route('WorkerProfile'));
         }
 
         // Checks if the rater has already rated the employer for the same job
@@ -39,7 +41,8 @@ class workerRating extends Controller
             ->first();
 
         if (!$jobRequest) {
-            return response()->json(['error' => 'You can only rate employers for ongoing jobs that you have accepted.']);
+            Session::flash('success', 'Can only rate one employer');
+            return redirect(route('WorkerProfile'));
         }
 
         $existingRating = Rating::where('RaterId', $raterID)
@@ -48,7 +51,8 @@ class workerRating extends Controller
             ->first();
 
         if ($existingRating) {
-            return response()->json(['error' => 'You have already rated this employer for this job.']);
+            Session::flash('success', 'Already rated this user');
+            return redirect(route('WorkerProfile'));
         }
 
         // Create and save the new rating
@@ -60,6 +64,7 @@ class workerRating extends Controller
         $rating->review = $request->input('review');
         $rating->save();
 
-    return response()->json(['message' => 'Rating sent successfully']);
+        Session::flash('success', 'Rating successful');
+        return redirect(route('WorkerProfile'));
 }
 }

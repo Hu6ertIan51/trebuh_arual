@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Joblist;
 use App\Models\JobRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 
 use Illuminate\Http\Request;
 
@@ -31,7 +33,8 @@ $raterID = Auth::id();
 $jobRequest = JobRequest::findOrFail($request->input('ratedUser'));
 
 if ($raterID === $jobRequest->user_id) {
-    return response()->json(['error' => 'You cannot rate yourself.']);
+    Session::flash('success', 'Rating unsuccessful, you cant rate yourself');
+    return redirect(route('empwork'));
 }
 
 // Checks if the rater has already rated the user (user can only rate once)
@@ -41,7 +44,8 @@ $existingRating = Rating::where('RaterId', $raterID)
 ->first();
 
 if ($existingRating) {
-return response()->json(['error' => 'You have already rated this user for this job.']);
+Session::flash('success', 'You have already rated this user');
+return redirect(route('empwork'));
 }
 
 // Create and save the new rating
@@ -54,7 +58,8 @@ $rating->review = $request->input('review');
 $rating->save();
 
 
-return response()->json(['message' => 'Request sent successfully']);
+Session::flash('success', 'Rating successful');
+return redirect(route('empwork'));
 }
 
 }

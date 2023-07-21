@@ -11,6 +11,6 @@ class AcceptRequest extends Controller
     
         $jobrequest->update(['status'=>true]);
 
-        return response()->json(['message' => 'Request sent successfully']);
+        return redirect(route('ongoingEmp'));
     }
 }
